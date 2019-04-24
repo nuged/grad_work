@@ -1,0 +1,3 @@
+mode,step,direction,windowSize
+discrete,10,horizontal,10
+continuous,10,horizontal,10

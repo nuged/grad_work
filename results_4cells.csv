@@ -1,0 +1,30 @@
+direction,mode,nCategories,nPatterns,pctCorrect,step,windowSize
+horizontal,discrete,10.0,2055.0,22.3,10.0,10.0
+horizontal,continuous,10.0,1834.0,21.2,10.0,10.0
+horizontal,discrete,10.0,10000.0,26.1,10.0,10.0 # + SP, 1 nn
+horizontal,discrete,10.0,10000.0,39.0,10.0,10.0 # + SP, 10 nn
+horizontal,discrete,10.0,10000.0,39.9,10.0,10.0 # + SP, 25 nn
+
+direction,mode,pctCorrect,step,windowSize
+
+horizontal,discrete,10.0,10.0,10.0 # + SP, SDRClassifier
+---Testing---
+	0-th iteration, nCorrect=1
+	100-th iteration, nCorrect=99
+	200-th iteration, nCorrect=99
+	300-th iteration, nCorrect=99
+	400-th iteration, nCorrect=99
+	500-th iteration, nCorrect=99
+	600-th iteration, nCorrect=99
+	700-th iteration, nCorrect=99
+	800-th iteration, nCorrect=99
+	900-th iteration, nCorrect=99
+
+# 2 cells:
+
+direction,mode,nCategories,nPatterns,pctCorrect,step,windowSize
+horizontal,discrete,10.0,9999.0,88.0,20.0,20.0
+horizontal,discrete,10.0,1477.0,19.2,10.0,10.0
+horizontal,continuous,10.0,9999.0,84.3,20.0,20.0
+horizontal,continuous,10.0,1506.0,20.2,10.0,10.0
+
