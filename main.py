@@ -39,8 +39,10 @@ baseParameters = {
         # "cellsPerCol" : CELLS_PER_COL,
         #"distanceMethod": "pctOverlapOfInput"
         #"steps" : [1],
-        "alpha" : 0.1,
-        "verbosity" : 0
+        "alpha" : 0.4,
+        "verbosity" : 0,
+        "implementation" : "cpp",
+        "steps" : 1
     },
 
     "sensor" : {

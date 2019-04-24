@@ -6,19 +6,20 @@ horizontal,discrete,10.0,10000.0,39.0,10.0,10.0 # + SP, 10 nn
 horizontal,discrete,10.0,10000.0,39.9,10.0,10.0 # + SP, 25 nn
 
 direction,mode,pctCorrect,step,windowSize
-
-horizontal,discrete,10.0,10.0,10.0 # + SP, SDRClassifier
----Testing---
-	0-th iteration, nCorrect=1
-	100-th iteration, nCorrect=99
-	200-th iteration, nCorrect=99
-	300-th iteration, nCorrect=99
-	400-th iteration, nCorrect=99
-	500-th iteration, nCorrect=99
-	600-th iteration, nCorrect=99
-	700-th iteration, nCorrect=99
-	800-th iteration, nCorrect=99
-	900-th iteration, nCorrect=99
+horizontal,discrete,10.4,32.0,32.0 # + SP, SDRClassifier
+horizontal,continuous,13.2,10.0,10.0 # + SP, SDRClassifier
+---Testing--- # c окном 32 результат тот же
+	99-th iteration, nCorrect=0
+	199-th iteration, nCorrect=0
+	299-th iteration, nCorrect=0
+	399-th iteration, nCorrect=0
+	499-th iteration, nCorrect=0
+	599-th iteration, nCorrect=0
+	699-th iteration, nCorrect=34
+	799-th iteration, nCorrect=34
+	899-th iteration, nCorrect=35
+	999-th iteration, nCorrect=132
+Pct of correct:  13.2
 
 # 2 cells:
 

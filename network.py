@@ -6,13 +6,15 @@ import os
 
 class myNetwork(Network):
 
-    def run(self, n):
+    def run(self, n, testing):
         tm = self.regions['TM']
         cls = self.regions['CLS']
         sp = self.regions['SP']
         clsLearning = cls.getParameter('learningMode')
         cls.setParameter('learningMode', 0)
-
+        if False:
+            print cls.getOutputData('categoriesOut')
+            print cls.getOutputData('probabilities')
         for i in range(n):
             if i == n - 1 and clsLearning:
                 cls.setParameter('learningMode', 1)
@@ -56,6 +58,8 @@ def createNetwork(params):
 
     net.link("TM", "SP2", "UniformLink", "",
              srcOutput="bottomUpOut", destInput="bottomUpIn")
+    #net.link("TM", "CLS", "UniformLink", "",
+    #         srcOutput="predictedActiveCells", destInput="predictedActiveCells")
 
     net.link("SP2", "CLS", "UniformLink", "",
              srcOutput="bottomUpOut", destInput="bottomUpIn")
@@ -100,7 +104,7 @@ def train(net, dataDir):
             t1 = time()
             mins = (t1 - start) / 60
             print "\t%d-th iteration, %05.2f min" % (i, mins)
-        net.run(imgIterations)
+        net.run(imgIterations, False)
 
     classifier.setParameter("inferenceMode", 1)
     classifier.setParameter("learningMode", 1)
@@ -118,13 +122,14 @@ def train(net, dataDir):
             t1 = time()
             mins = (t1 - start) / 60
             print "\t%d-th iteration, %05.2f min" % (i, mins)
-        net.run(imgIterations)
+        net.run(imgIterations, False)
 
 
 
 def test(net, dataDir):
     sensor = net.regions["sensor"]
     sp = net.regions["SP"]
+    sp2 = net.regions['SP2']
     tm = net.regions['TM']
     classifier = net.regions["CLS"]
 
@@ -138,16 +143,19 @@ def test(net, dataDir):
     classifier.setParameter("learningMode", 0)
     sp.setParameter("inferenceMode", 1)
     sp.setParameter("learningMode", 0)
+    sp2.setParameter("inferenceMode", 1)
+    sp2.setParameter("learningMode", 0)
     tm.setParameter("inferenceMode", 1)
     tm.setParameter("learningMode", 0)
     print('---Testing---')
     numCorrect = 0
     for i in range(numTestImages):
-        net.run(imgIterations)
-        inferredCategory = classifier.getOutputData("categoriesOut").argmax()
+        net.run(imgIterations, True)
+        inferredCategory = classifier.getOutputData("categoriesOut")
+        #print inferredCategory, sensor.getOutputData("categoryOut")
         if sensor.getOutputData("categoryOut") == inferredCategory:
             numCorrect += 1
-        if i % 100 == 0:
+        if i % 100 == 99:
             print "\t%d-th iteration, nCorrect=%d" % (i, numCorrect)
 
     # Some interesting statistics

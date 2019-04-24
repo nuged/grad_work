@@ -1,2 +1,3 @@
 direction,mode,pctCorrect,step,windowSize
-horizontal,discrete,10.0,10.0,10.0
+horizontal,discrete,10.4,32.0,32.0
+horizontal,continuous,13.2,10.0,10.0
