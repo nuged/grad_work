@@ -1,6 +1,7 @@
 from nupic.vision.regions.ImageSensorExplorers.BaseExplorer import BaseExplorer
 from nupic.regions.sp_region import SPRegion
 from nupic.regions.sdr_classifier_region import SDRClassifierRegion
+from nupic.regions.knn_classifier_region import  KNNClassifierRegion
 from nupic.vision.regions.ImageSensor import ImageSensor
 
 
@@ -42,5 +43,5 @@ class mySP(SPRegion):
     pass
 
 
-class myClassifier(SDRClassifierRegion):
+class myClassifier(KNNClassifierRegion):
     pass

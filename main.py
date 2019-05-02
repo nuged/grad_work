@@ -4,63 +4,20 @@ import yaml
 import pandas as pd
 
 IMG_SIZE = 28
-CELLS_PER_COL = 4
-
-baseParameters = {
-    'TM' : {
-        "cellsPerColumn": CELLS_PER_COL,
-        'temporalImp' : 'cpp'
-    },
-
-    "SP" : {
-        "spatialImp": "cpp",
-        "synPermConnected": 0.2,
-        "synPermActiveInc": 0.0,
-        "synPermInactiveDec": 0.0,
-        "globalInhibition": 1,
-        "potentialPct": 0.9,
-        "boostStrength": 0.0
-    },
-
-    "SP2" : {
-        "spatialImp": "cpp",
-        "synPermConnected": 0.2,
-        "synPermActiveInc": 0.0,
-        "synPermInactiveDec": 0.0,
-        "globalInhibition": 1,
-        "potentialPct": 0.9,
-        "boostStrength": 0.0
-    },
-
-    "CLS" : {
-        # "distThreshold": 0.000001,
-        "maxCategoryCount": 10,
-        #"k" : 25,
-        # "cellsPerCol" : CELLS_PER_COL,
-        #"distanceMethod": "pctOverlapOfInput"
-        #"steps" : [1],
-        "alpha" : 0.4,
-        "verbosity" : 0,
-        "implementation" : "cpp",
-        "steps" : 1
-    },
-
-    "sensor" : {
-        "mode": "bw",
-        "background": 0
-    }
-}
 
 
-def getUpdater(mode, step, direction):
+def getUpdater(mode, step, direction, n_imgs):
     if mode == 'discrete':
-        updater = DiscPosUpdater(IMG_SIZE, step, direction)
+        updater = DiscPosUpdater(IMG_SIZE, step, direction, n_imgs)
     elif mode == 'continuous':
-        updater = ContPosUpdater(IMG_SIZE, step, direction)
+        updater = ContPosUpdater(IMG_SIZE, step, direction, n_imgs)
     else:
         raise NotImplementedError()
     return updater
 
+
+with open('parameters.yaml', "r") as f:
+    baseParameters = yaml.safe_load(f)['modelParams']
 
 tunableParameters = pd.read_csv('parameters.csv')
 results = pd.DataFrame(columns=tunableParameters.columns.union(['pctCorrect']))
@@ -70,26 +27,23 @@ for i, row in tunableParameters.iterrows():
     step = int(row['step'])
     direction = row['direction']
     windowSize = row['windowSize']
-    columnCount = windowSize * 100
-    activeColumns = windowSize * 5
-    inputWidth = windowSize ** 2
-    updater = getUpdater(mode, step, direction)
+    inputSize = windowSize * windowSize
 
+    updater = getUpdater(mode, step, direction, 10000)
 
-    baseParameters['TM']['columnCount'] = columnCount
-    baseParameters['TM']['inputWidth'] = columnCount
-    baseParameters['SP']['columnCount'] = columnCount
-    baseParameters['SP']['inputWidth'] = inputWidth
-    baseParameters['SP']['numActiveColumnsPerInhArea'] = activeColumns
-    baseParameters['SP2']['columnCount'] = columnCount
-    baseParameters['SP2']['inputWidth'] = columnCount * CELLS_PER_COL
-    baseParameters['SP2']['numActiveColumnsPerInhArea'] = activeColumns
+    baseParameters['SP']['inputWidth'] = inputSize
     baseParameters['sensor']['width'] = windowSize
     baseParameters['sensor']['height'] = windowSize
     baseParameters['sensor']['explorer'] = yaml.dump(["regions.myExplorer", {"updater": updater}])
 
     net = createNetwork(baseParameters)
+
     train(net, 'mnist')
+
+    updater = getUpdater(mode, step, direction, 1000)
+
+    net.regions['sensor'].setParameter('explorer', yaml.dump(["regions.myExplorer", {"updater": updater}]))
+
     pctCorrect = test(net, 'mnist')
     print 'Pct of correct: ', pctCorrect
 
@@ -102,5 +56,4 @@ for i, row in tunableParameters.iterrows():
     currentResults['pctCorrect'] = pctCorrect
 
     results = results.append(currentResults, ignore_index=True)
-
     results.to_csv('results.csv', index=False)

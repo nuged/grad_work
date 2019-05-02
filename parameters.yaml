@@ -1,0 +1,61 @@
+modelParams:
+
+  "SP":
+    numActiveColumnsPerInhArea : 120 # 59.2, 61.4, 64.9, 64.8, 64.4, 66.0, 65.8, 67.3, 65.3, 66.2
+    columnCount : 4096 # 4096=67.3, 28.5, 40.5, 55.4, 66.2,
+    "spatialImp": cpp
+    "synPermConnected": 0.4 # 72.4, 72.4, 72.5, 74.0, 73.2, 73.8, 73.5, 74.7, 71.9, 73.4, 74.1
+    "globalInhibition": 1
+    "potentialPct": 0.1 # 74.0, 71.5, 71.3
+    spVerbosity: 0
+    seed: 1956
+    synPermActiveInc: 0.04
+    synPermInactiveDec: 0.005
+    boostStrength: 1.5 # 74.7-2, 67.5 72.9, 72.7, 75.2, 74.7,73.6,
+
+  TM:
+    verbosity: 0
+    columnCount: 4096 # 64.7
+    cellsPerColumn: 6 # 65.5, 65.7, 64.4, 64.8, 66.4, 66.0
+    inputWidth: 4096
+    seed: 1960
+    temporalImp: cpp
+    newSynapseCount: 20 # 66.0
+    initialPerm: 0.3
+    permanenceInc: 0.1
+    permanenceDec: 0.005
+    globalDecay: 0.0
+    maxSynapsesPerSegment: 80
+    maxSegmentsPerCell: 128
+    minThreshold: 32
+    activationThreshold: 32
+    maxAge: 0
+
+  "SP2":
+    columnCount : 2048
+    inputWidth : 24576
+    numActiveColumnsPerInhArea : 60  # 40=62.1, 48.5, 56.4, 60.3, 61.4, 63.4, 63.0
+    "spatialImp": cpp
+    "synPermConnected": 0.1 # 59.1, 61.6, 60.2, 58.3, 57.3
+    "globalInhibition": 1
+    "potentialPct": 0.1 # 56.4, 59.1
+    spVerbosity: 0
+    seed: 1956
+    synPermActiveInc: 0.04
+    synPermInactiveDec: 0.005
+    boostStrength: 2.5  # 61.6, 59.9, 59.6, 61.0, 60.0, 62.1, 62.3, 60.7, 61.4, 59.4
+
+
+  "CLS": # SDRCls : 77.3%, 85.3%
+    "distThreshold": 6
+    maxCategoryCount: 10
+    k : 8
+    distanceMethod: "rawOverlap"    # norm, rawOverlap, pctOverlapOfLarger, pctOverlapOfProto, pctOverlapOfInput
+    #"alpha" : 0.2 # 0.5 = 59.2, 47.9, 62.1, 62.0, 62.5, 63.6, 61.7
+    "verbosity" : 0
+    #"implementation" : "cpp"
+
+  "sensor":
+    "mode": "bw"
+    "background": 0
+
