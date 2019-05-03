@@ -36,24 +36,23 @@ for i, row in tunableParameters.iterrows():
     baseParameters['sensor']['height'] = windowSize
     baseParameters['sensor']['explorer'] = yaml.dump(["regions.myExplorer", {"updater": updater}])
 
-    net = createNetwork(baseParameters)
+    with open('TM_test.csv', 'w') as f:
+        f.write('cellsPerColumn,initialPerm,maxSegmentsPerCell,result\n')
 
-    train(net, 'mnist')
+    for cellsPerColumn in [2, 4, 8, 16]:
+        for initialPerm in [0.05, 0.1, 0.3, 0.5, 0.7]:
+            for maxSegmentsPerCell in [48, 64, 80, 96]:
+                print '\n--------------------cellsPerCol=%d, initPerm=%f, maxSeg=%d--------------------' \
+                      % (cellsPerColumn, initialPerm, maxSegmentsPerCell)
+                baseParameters['TM']['cellsPerColumn'] = cellsPerColumn
+                baseParameters['TM']['initialPerm'] = initialPerm
+                baseParameters['TM']['maxSegmentsPerCell'] = maxSegmentsPerCell
 
-    updater = getUpdater(mode, step, direction, 1000)
+                baseParameters['SP2']['inputWidth'] = baseParameters['TM']['columnCount'] * cellsPerColumn
 
-    net.regions['sensor'].setParameter('explorer', yaml.dump(["regions.myExplorer", {"updater": updater}]))
+                net = createNetwork(baseParameters)
+                train(net, 'mnist')
+                pctCorrect = test(net, 'mnist')
 
-    pctCorrect = test(net, 'mnist')
-    print 'Pct of correct: ', pctCorrect
-
-    currentResults = {}
-
-    currentResults['step'] = int(step)
-    currentResults['mode'] = mode
-    currentResults['direction'] = direction
-    currentResults['windowSize'] = int(windowSize)
-    currentResults['pctCorrect'] = pctCorrect
-
-    results = results.append(currentResults, ignore_index=True)
-    results.to_csv('results.csv', index=False)
+                with open('TM_test.csv', 'a') as f:
+                    f.write(str(cellsPerColumn)+','+str(initialPerm)+','+str(maxSegmentsPerCell)+','+str(pctCorrect)+'\n')

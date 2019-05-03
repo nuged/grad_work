@@ -21,6 +21,9 @@ class BasePosUpdater:
         return int(ceil(self.imageSize / float(self.step))) ** 2
 
     def getNextImage(self, position):
+        position['offset'] = [0, 0]
+        position['image'] += 1
+        return position
         N_IMGS = self.n_imgs
         if position['image'] + N_IMGS // 10 > N_IMGS - 1:
             position['image'] -= N_IMGS - 1 - N_IMGS // 10

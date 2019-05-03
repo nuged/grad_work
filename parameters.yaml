@@ -2,7 +2,7 @@ modelParams:
 
   "SP":
     numActiveColumnsPerInhArea : 120 # 59.2, 61.4, 64.9, 64.8, 64.4, 66.0, 65.8, 67.3, 65.3, 66.2
-    columnCount : 4096 # 4096=67.3, 28.5, 40.5, 55.4, 66.2,
+    columnCount : 4096 # 28.5, 40.5, 55.4, 66.2,
     "spatialImp": cpp
     "synPermConnected": 0.4 # 72.4, 72.4, 72.5, 74.0, 73.2, 73.8, 73.5, 74.7, 71.9, 73.4, 74.1
     "globalInhibition": 1
@@ -13,27 +13,27 @@ modelParams:
     synPermInactiveDec: 0.005
     boostStrength: 1.5 # 74.7-2, 67.5 72.9, 72.7, 75.2, 74.7,73.6,
 
-  TM:
+  TM:                                                   # 39% - current best
     verbosity: 0
-    columnCount: 4096 # 64.7
-    cellsPerColumn: 6 # 65.5, 65.7, 64.4, 64.8, 66.4, 66.0
+    columnCount: 2048 # 64.7
+    cellsPerColumn: 4 # 65.5, 65.7, 64.4, 64.8, 66.4, 66.0
     inputWidth: 4096
     seed: 1960
     temporalImp: cpp
-    newSynapseCount: 20 # 66.0
-    initialPerm: 0.3
+    newSynapseCount: 4                                  # 4 or 32!!! order matters    | lowb
+    initialPerm: 0.2
     permanenceInc: 0.1
     permanenceDec: 0.005
     globalDecay: 0.0
-    maxSynapsesPerSegment: 80
-    maxSegmentsPerCell: 128
-    minThreshold: 32
-    activationThreshold: 32
+    maxSynapsesPerSegment: 32                           # 32!!!
+    maxSegmentsPerCell: 64                              # 64 or 8!!! order matters    | highb
+    minThreshold: 32                                    # NO MATTER!!!
+    activationThreshold: 4                              # 4!!!                        | lowb
     maxAge: 0
 
   "SP2":
     columnCount : 2048
-    inputWidth : 24576
+    inputWidth : 8192
     numActiveColumnsPerInhArea : 60  # 40=62.1, 48.5, 56.4, 60.3, 61.4, 63.4, 63.0
     "spatialImp": cpp
     "synPermConnected": 0.1 # 59.1, 61.6, 60.2, 58.3, 57.3
@@ -57,5 +57,5 @@ modelParams:
 
   "sensor":
     "mode": "bw"
-    "background": 0
+    "background": 1
 
