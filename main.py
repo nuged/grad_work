@@ -2,6 +2,7 @@ from updaters import *
 from network import createNetwork, train, test
 import yaml
 import pandas as pd
+from time import time
 
 IMG_SIZE = 28
 
@@ -36,23 +37,34 @@ for i, row in tunableParameters.iterrows():
     baseParameters['sensor']['height'] = windowSize
     baseParameters['sensor']['explorer'] = yaml.dump(["regions.myExplorer", {"updater": updater}])
 
-    with open('TM_test.csv', 'w') as f:
-        f.write('cellsPerColumn,initialPerm,maxSegmentsPerCell,result\n')
+    with open('test.csv', 'w') as f:
+        f.write('SPCC,TMCC,TMCpC,SP2CC,time,result\n')
 
-    for cellsPerColumn in [2, 4, 8, 16]:
-        for initialPerm in [0.05, 0.1, 0.3, 0.5, 0.7]:
-            for maxSegmentsPerCell in [48, 64, 80, 96]:
-                print '\n--------------------cellsPerCol=%d, initPerm=%f, maxSeg=%d--------------------' \
-                      % (cellsPerColumn, initialPerm, maxSegmentsPerCell)
-                baseParameters['TM']['cellsPerColumn'] = cellsPerColumn
-                baseParameters['TM']['initialPerm'] = initialPerm
-                baseParameters['TM']['maxSegmentsPerCell'] = maxSegmentsPerCell
+    for SPCC in [2048, 4096, 6144]:
+        for TMCC in [2048, 4096, 6144]:
+            for TMCpC in [4, 8, 16]:
+                for SP2CC in [2048, 4096]:
+                    baseParameters['SP']['columnCount'] = SPCC
+                    baseParameters['SP']['numActiveColumnsPerInhArea'] = SPCC // 25
+                    baseParameters['TM']['inputWidth'] = SPCC
+                    baseParameters['TM']['columnCount'] = TMCC
+                    baseParameters['TM']['cellsPerColumn'] = TMCpC
+                    baseParameters['SP2']['columnCount'] = SP2CC
+                    baseParameters['SP2']['numActiveColumnsPerInhArea'] = SP2CC // 25
+                    baseParameters['SP2']['inputWidth'] = TMCC * TMCpC
 
-                baseParameters['SP2']['inputWidth'] = baseParameters['TM']['columnCount'] * cellsPerColumn
+                    print '\n----------SP_CC=%d, SP_AC=%d, TM_CC=%d, TM_CpC=%d, SP2_CC=%d, SP2_AC=%d----------' % \
+                          (SPCC, SPCC // 25, TMCC, TMCpC, SP2CC, SP2CC // 25)
 
-                net = createNetwork(baseParameters)
-                train(net, 'mnist')
-                pctCorrect = test(net, 'mnist')
+                    net = createNetwork(baseParameters)
+                    start = time()
+                    train(net, 'mnist')
+                    pctCorrect = test(net, 'mnist')
+                    t = time() - start
 
-                with open('TM_test.csv', 'a') as f:
-                    f.write(str(cellsPerColumn)+','+str(initialPerm)+','+str(maxSegmentsPerCell)+','+str(pctCorrect)+'\n')
+                    answer = '%d,%d,%d,%d,%f,%f\n' % (SPCC, TMCC, TMCpC, SP2CC, t, pctCorrect)
+
+                    with open('test.csv', 'a') as f:
+                        f.write(answer)
+
+                    print pctCorrect, 'took %f sec' % t

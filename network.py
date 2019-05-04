@@ -44,16 +44,16 @@ class myNetwork(Network):
                 print '\n\nsensor'
                 #print sensor.getSelf().explorer[2].position
                 print sensor.getOutputData('resetOut')
-                sens_out = sensor.getOutputData('dataOut').reshape(20, 20)
+                sens_out = sensor.getOutputData('dataOut').reshape(10, 10)
                 for s in sens_out:
                     print ''.join('_' if e == 0 else '&' for e in s)
 
                 print '\nsp1'
-                sp1_in = sp.getInputData('bottomUpIn').reshape(20, 20)
+                sp1_in = sp.getInputData('bottomUpIn').reshape(10, 10)
                 #for s in sp1_in:
                 #    print ''.join('_' if e == 0 else '&' for e in s)
                 print sp.getInputData('resetIn')
-                sp1_out = sp.getOutputData('bottomUpOut').reshape(32, 128)
+                sp1_out = sp.getOutputData('bottomUpOut').reshape(16, 128)
                 for s in sp1_out:
                     print ''.join('_' if e == 0 else '&' for e in s)
 
@@ -143,7 +143,7 @@ def train(net, dataDir):
     sensor.executeCommand(["loadMultipleImages", os.path.join(dataDir, "small_training")])
     numTrainingImages = sensor.getParameter("numImages")
 
-    # ----------------------------------------SP1 TRAINING----------------------------------------
+    # ----------------------------------------Phase 1----------------------------------------
     classifier.setParameter("inferenceMode", 0)
     classifier.setParameter("learningMode", 0)
     sp.setParameter("learningMode", 1)
@@ -154,47 +154,13 @@ def train(net, dataDir):
     sp2.setParameter("inferenceMode", 0)
 
     nTrainingIterations = numTrainingImages
-    print "---SP1 training---"
+    print "---Phase 1---"
     start = time()
     for i in range(nTrainingIterations):
         net.run(imgIterations, False)
     print 'Finished in %06.2f sec' % (time() - start)
 
-    '''
-    # ----------------------------------------TM TRAINING----------------------------------------
-    classifier.setParameter("inferenceMode", 0)
-    classifier.setParameter("learningMode", 0)
-    sp.setParameter("learningMode", 0)
-    sp.setParameter("inferenceMode", 1)
-    tm.setParameter("learningMode", 1)
-    tm.setParameter("inferenceMode", 1)
-    sp2.setParameter("learningMode", 0)
-    sp2.setParameter("inferenceMode", 0)
-
-    nTrainingIterations = numTrainingImages
-    print "---TM training---"
-    with open('logs.txt', 'w') as f:
-        f.write('-----TM Training-----\n')
-    start = time()
-    for i in range(nTrainingIterations):
-        if i % 200 == 199:
-            t1 = time()
-            mins = (t1 - start) / 60
-            if mins >= 1:
-                mins, seconds = math.modf(mins)
-            else:
-                mins, seconds = 0, mins
-            mins = int(mins)
-            seconds = int(seconds * 60)
-            print "\t%d-th iteration,\t%.2d min %.2d sec" % (i, mins, seconds)
-        if i % 100 < 3:
-            log = True
-        else:
-            log = False
-        net.run(imgIterations, log)
-
-    '''
-    # ----------------------------------------TM TRAINING----------------------------------------
+    # ----------------------------------------Phase 2----------------------------------------
     classifier.setParameter("inferenceMode", 0)
     classifier.setParameter("learningMode", 0)
     sp.setParameter("learningMode", 0)
@@ -203,15 +169,14 @@ def train(net, dataDir):
     tm.setParameter("inferenceMode", 0)
     sp2.setParameter("learningMode", 0)
     sp2.setParameter("inferenceMode", 0)
-
     nTrainingIterations = numTrainingImages
-    print "---TM training---"
+    print "---Phase 2---"
     start = time()
     for i in range(nTrainingIterations):
         net.run(imgIterations, False)
     print 'Finished in %06.2f sec' % (time() - start)
 
-    # ----------------------------------------SP2 TRAINING----------------------------------------
+    # ----------------------------------------Phase 3----------------------------------------
     classifier.setParameter("inferenceMode", 0)
     classifier.setParameter("learningMode", 0)
     sp.setParameter("learningMode", 0)
@@ -222,14 +187,14 @@ def train(net, dataDir):
     sp2.setParameter("inferenceMode", 0)
 
     nTrainingIterations = numTrainingImages
-    print "---SP2 training---"
+    print "---Phase 3---"
     start = time()
     for i in range(nTrainingIterations):
         net.run(imgIterations, False)
     print 'Finished in %06.2f sec' % (time() - start)
 
     # ----------------------------------------Classifier TRAINING----------------------------------------
-    classifier.setParameter("inferenceMode", 1)
+    classifier.setParameter("inferenceMode", 0)
     classifier.setParameter("learningMode", 1)
     sp.setParameter("learningMode", 0)
     sp.setParameter("inferenceMode", 1)
@@ -269,12 +234,13 @@ def test(net, dataDir):
 
     print('---Testing---')
     numCorrect = 0
+    every = 50
     for i in range(numTestImages):
         net.run(imgIterations, False)
         inferredCategory = classifier.getOutputData("categoriesOut").argmax()
         if sensor.getOutputData("categoryOut") == inferredCategory:
             numCorrect += 1
-        if i % 60 == 59:
+        if i % every == every - 1:
             print "\t%d-th iteration, nCorrect=%d" % (i, numCorrect)
 
     return (100.0 * numCorrect) / numTestImages

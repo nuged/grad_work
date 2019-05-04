@@ -1,12 +1,12 @@
 modelParams:
 
   "SP":
-    numActiveColumnsPerInhArea : 120 # 59.2, 61.4, 64.9, 64.8, 64.4, 66.0, 65.8, 67.3, 65.3, 66.2
-    columnCount : 4096 # 28.5, 40.5, 55.4, 66.2,
+    numActiveColumnsPerInhArea : 80                     # 3-4 % from colCnt
+    columnCount : 2048                                  # 2048+
     "spatialImp": cpp
     "synPermConnected": 0.4 # 72.4, 72.4, 72.5, 74.0, 73.2, 73.8, 73.5, 74.7, 71.9, 73.4, 74.1
     "globalInhibition": 1
-    "potentialPct": 0.1 # 74.0, 71.5, 71.3
+    "potentialPct": 0.2                                 # 0.1...0.2 !!!
     spVerbosity: 0
     seed: 1956
     synPermActiveInc: 0.04
@@ -16,12 +16,12 @@ modelParams:
   TM:                                                   # 39% - current best
     verbosity: 0
     columnCount: 2048 # 64.7
-    cellsPerColumn: 4 # 65.5, 65.7, 64.4, 64.8, 66.4, 66.0
+    cellsPerColumn: 4                                   # 2 or 4
     inputWidth: 4096
     seed: 1960
     temporalImp: cpp
     newSynapseCount: 4                                  # 4 or 32!!! order matters    | lowb
-    initialPerm: 0.2
+    initialPerm: 0.1
     permanenceInc: 0.1
     permanenceDec: 0.005
     globalDecay: 0.0
@@ -32,9 +32,9 @@ modelParams:
     maxAge: 0
 
   "SP2":
-    columnCount : 2048
+    columnCount : 2048                                  # 2048!!! if 80
     inputWidth : 8192
-    numActiveColumnsPerInhArea : 60  # 40=62.1, 48.5, 56.4, 60.3, 61.4, 63.4, 63.0
+    numActiveColumnsPerInhArea : 80                     # 80!!! if 2048
     "spatialImp": cpp
     "synPermConnected": 0.1 # 59.1, 61.6, 60.2, 58.3, 57.3
     "globalInhibition": 1
@@ -47,9 +47,9 @@ modelParams:
 
 
   "CLS": # SDRCls : 77.3%, 85.3%
-    "distThreshold": 6
+    "distThreshold": 4                                   # 4!!! if k=16
     maxCategoryCount: 10
-    k : 8
+    k : 16                                               # 16!!!
     distanceMethod: "rawOverlap"    # norm, rawOverlap, pctOverlapOfLarger, pctOverlapOfProto, pctOverlapOfInput
     #"alpha" : 0.2 # 0.5 = 59.2, 47.9, 62.1, 62.0, 62.5, 63.6, 61.7
     "verbosity" : 0
