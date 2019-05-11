@@ -79,26 +79,27 @@ class ContPosUpdater(BasePosUpdater):
 
 
 class specificUpdater:
-    def __init__(self, step, moveList):
+    def __init__(self, step, moveList, start=[5, 5]):
+        self.start = start
         self.step = step
         self.moveList = moveList
         self.currentMove = 0
 
     def getNextPosition(self, position):
         move = self.moveList[self.currentMove]
-        if move == 'up':
+        if move == 2:
             position['offset'][1] -= self.step
-        elif move == 'down':
+        elif move == 3:
             position['offset'][1] += self.step
-        elif move == 'left':
+        elif move == 0:
             position['offset'][0] -= self.step
-        elif move == 'right':
+        elif move == 1:
             position['offset'][0] += self.step
 
         if self.currentMove == len(self.moveList) - 1:
             self.currentMove = 0
             position['image'] += 1
-            position['offset'] = [5, 5]
+            position['offset'] = self.start
         else:
             self.currentMove += 1
         return position

@@ -200,7 +200,7 @@ class myExplorer(BaseExplorer):
 
     def first(self, center=True):
         BaseExplorer.first(self, False)
-        self.position['offset'] = [5, 5]
+        self.position['offset'] = self.updater.start
 
 class mySP(SPRegion):
     pass

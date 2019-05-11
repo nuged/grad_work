@@ -257,17 +257,23 @@ def test(net, dataDir, fullSample=False):
     numCorrect = 0
 
     every = numTestImages // 10
-
+    ses = []
     for i in range(numTestImages):
         if i == 48:
             net.run(imgIterations, True)
         else:
             net.run(imgIterations, False)
-        inferredCategory = classifier.getOutputData("categoriesOut").argmax()
-
+        catVec = classifier.getOutputData("categoriesOut")
+        inferredCategory = catVec.argmax()
+        trueCategory = sensor.getOutputData("categoryOut")
+        idx = int(trueCategory[0])
+        catVec[idx] =- 1
+        se = np.square(catVec).sum()
+        ses.append(se)
         if sensor.getOutputData("categoryOut") == inferredCategory:
             numCorrect += 1
         if i % every == every - 1:
             print "\t%d-th iteration, nCorrect=%d" % (i, numCorrect)
+    mse = np.mean(ses)
 
-    return (100.0 * numCorrect) / numTestImages
+    return (100.0 * numCorrect) / numTestImages, mse
