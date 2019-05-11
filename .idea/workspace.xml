@@ -2,986 +2,160 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac3145f9-5f67-4f54-80c9-d522f453c9d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/create_sample.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/SP1_test_1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/SP2_test_2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/results.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/some.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/test_0.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/test_1.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SP1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/SP1_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SP1_test_0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/SP1_test_0.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SP2_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/SP2_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SP2_test_0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/SP2_test_0.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TM_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/TM_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TM_test_0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/TM_test_0.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TM_test_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/TM_test_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_testing_sample.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_training_sample.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs2.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/0/000069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/1/000069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/2/000069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/3/000069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/4/000069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/5/000069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/6/000069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/7/000069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/8/000069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mnist/small_training/9/000069.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/0/000024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/1/000024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/2/000024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/3/000024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/4/000024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/5/000024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/6/000024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/7/000024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/8/000024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist/small_testing/9/000024.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parameters.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/parameters.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/regions.py" beforeDir="false" afterPath="$PROJECT_DIR$/regions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results_2cells.csv" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/results_2cells.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results_4cells.csv" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/results_4cells.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/tests.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/updaters.py" beforeDir="false" afterPath="$PROJECT_DIR$/updaters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters.csv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -1008,12 +182,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="570">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
-                <element signature="e#1393#3269#0" />
-                <element signature="e#3557#4680#0" />
               </folding>
             </state>
           </provider>
@@ -1022,30 +194,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parameters.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="68" selection-end-line="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#174#2982#0" />
-              </folding>
+            <state relative-caret-position="233">
+              <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/network.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+            <state relative-caret-position="423">
+              <caret line="222" column="33" selection-start-line="222" selection-start-column="33" selection-end-line="222" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#174#2982#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1114,12 +277,12 @@
         <option value="$PROJECT_DIR$/logs.txt" />
         <option value="$PROJECT_DIR$/test.csv" />
         <option value="$PROJECT_DIR$/df_look.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/network.py" />
         <option value="$PROJECT_DIR$/parameters.yaml" />
         <option value="$PROJECT_DIR$/experiments/full_sample_01.txt" />
         <option value="$PROJECT_DIR$/create_sample.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/network.py" />
       </list>
     </option>
   </component>
@@ -1340,12 +503,12 @@
       <workItem from="1556825495923" duration="83251000" />
       <workItem from="1557079801162" duration="33116000" />
       <workItem from="1557167711307" duration="40950000" />
-      <workItem from="1557302425527" duration="59908000" />
+      <workItem from="1557302425527" duration="62391000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274180000" />
+    <option name="totallyTimeSpent" value="276663000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1360,12 +523,12 @@
     <frame x="0" y="0" width="1920" height="1043" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49926794" visible="true" weight="0.1977492" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49926794" visible="true" weight="0.1977492" />
       <window_info id="Structure" order="1" sideWeight="0.50073206" side_tool="true" weight="0.18703108" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4994641" weight="0.26203808" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4994641" visible="true" weight="0.26203808" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3012318" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1374,7 +537,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32922733" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005359" side_tool="true" weight="0.26203808" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33146697" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.33146697" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32922733" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1414,7 +577,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/grad_work$filter_out.coverage" NAME="filter_out Coverage Results" MODIFIED="1557313723063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/grad_work$main.coverage" NAME="main Coverage Results" MODIFIED="1557510634631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/grad_work$main.coverage" NAME="main Coverage Results" MODIFIED="1557570739862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HTM$main.coverage" NAME="main Coverage Results" MODIFIED="1556119211152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$plot.coverage" NAME="plot Coverage Results" MODIFIED="1557176016857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$create_train.coverage" NAME="create_train Coverage Results" MODIFIED="1557061075352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -1572,33 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parameters.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs.txt">
-      <provider editor-type-id="LargeFileEditor">
-        <state relative-caret-position="-225890" />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2080898" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#1393#3269#0" />
-            <element signature="e#3557#4680#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
@@ -1623,13 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parameters.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/df_look.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1647,14 +776,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network.py">
+    <entry file="file://$PROJECT_DIR$/parameters.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#174#2982#0" />
-          </folding>
+        <state relative-caret-position="19">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1662,6 +787,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs.txt">
+      <provider editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-225890" />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parameters.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="222" column="33" selection-start-line="222" selection-start-column="33" selection-end-line="222" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#174#2982#0" />
+          </folding>
         </state>
       </provider>
     </entry>

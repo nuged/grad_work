@@ -131,7 +131,7 @@ def createNetwork(params):
     return net
 
 
-def train(net, dataDir):
+def train(net, dataDir, fullSample=False):
     sensor = net.regions["sensor"]
     sp = net.regions["SP"]
     tm = net.regions['TM']
@@ -140,8 +140,17 @@ def train(net, dataDir):
 
     imgIterations = sensor.getSelf().explorer[2].getImageIterations()
 
-    sensor.executeCommand(["loadMultipleImages", os.path.join(dataDir, "training")])
+    if fullSample:
+        path = os.path.join(dataDir, "training")
+    else:
+        path = os.path.join(dataDir, 'small_training')
+
+    start = time()
+    sensor.executeCommand(["loadMultipleImages", path])
     numTrainingImages = sensor.getParameter("numImages")
+    end = time()
+
+    print 'Loaded %d training samples in %3.2f seconds' % (numTrainingImages, (end-start))
 
     # ----------------------------------------Phase 1----------------------------------------
     classifier.setParameter("inferenceMode", 0)
@@ -156,10 +165,10 @@ def train(net, dataDir):
     nTrainingIterations = numTrainingImages
     print "---Phase 1---"
     start = time()
-    for i in range(nTrainingIterations * 2):
+    for i in range(nTrainingIterations):
         net.run(imgIterations, False)
 
-    print 'Finished in %06.2f sec' % (time() - start)
+    print '\tFinished in %06.2f sec' % (time() - start)
 
     # ----------------------------------------Phase 2----------------------------------------
     classifier.setParameter("inferenceMode", 0)
@@ -172,15 +181,11 @@ def train(net, dataDir):
     sp2.setParameter("inferenceMode", 0)
     nTrainingIterations = numTrainingImages
 
-
     print "---Phase 2---"
     start = time()
     for i in range(nTrainingIterations):
-        #print 'Phase 2, iter:\t%d, cat=%d-------------------------------------------------------------------------------------------' \
-        #      % (i, sensor.getOutputData('categoryOut'))
         net.run(imgIterations, False)
-    print 'Finished in %06.2f sec' % (time() - start)
-    #tm.getSelf().finishLearning()
+    print '\tFinished in %06.2f sec' % (time() - start)
 
     # ----------------------------------------Phase 3----------------------------------------
     classifier.setParameter("inferenceMode", 0)
@@ -197,7 +202,7 @@ def train(net, dataDir):
     start = time()
     for i in range(nTrainingIterations):
         net.run(imgIterations, False)
-    print 'Finished in %06.2f sec' % (time() - start)
+    print '\tFinished in %06.2f sec' % (time() - start)
 
     # ----------------------------------------Classifier TRAINING----------------------------------------
     classifier.setParameter("inferenceMode", 0)
@@ -213,14 +218,12 @@ def train(net, dataDir):
     start = time()
     for i in range(nTrainingIterations):
         net.run(imgIterations, False)
-    print 'Finished in %06.2f sec' % (time() - start)
+    print '\tFinished in %06.2f sec' % (time() - start)
 
     print '\nnPatterns learned:', classifier.getParameter('patternCount')
-    print 'nPatterns stored:', classifier.getParameter('winnerCount')
-    print 'nCat learned:', classifier.getParameter('categoryCount'), '\n'
 
 
-def test(net, dataDir):
+def test(net, dataDir, fullSample=False):
     sensor = net.regions["sensor"]
     sp = net.regions["SP"]
     sp2 = net.regions['SP2']
@@ -229,9 +232,17 @@ def test(net, dataDir):
 
     imgIterations = sensor.getSelf().explorer[2].getImageIterations()
 
-    sensor.executeCommand(["loadMultipleImages", os.path.join(dataDir, "testing")])
+    if fullSample:
+        path = os.path.join(dataDir, "testing")
+    else:
+        path = os.path.join(dataDir, 'small_testing')
 
+    start = time()
+    sensor.executeCommand(["loadMultipleImages", path])
     numTestImages = sensor.getParameter("numImages")
+    end = time()
+
+    print '\nLoaded %d training samples in %3.2f seconds' % (numTestImages, (end-start))
 
     classifier.setParameter("inferenceMode", 1)
     classifier.setParameter("learningMode", 0)
@@ -244,18 +255,10 @@ def test(net, dataDir):
 
     print('---Testing---')
     numCorrect = 0
-    every = 1000
+
+    every = numTestImages // 10
+
     for i in range(numTestImages):
-        #if i % every == 42:s
-        #    sp.setParameter('logPathInput', 'logs/sp_in_%d.log' % i)
-        #    sp.setParameter('logPathOutput', 'logs/sp_out%d.log' % i)
-        #    tm.setParameter('logPathOutput', 'logs/tm_out%d.log' % i)
-        #    log = True
-        #else:
-        #    sp.setParameter('logPathInput', '')
-        #    sp.setParameter('logPathOutput', '')
-        #    tm.setParameter('logPathOutput', '')
-        #    log = False
         if i == 48:
             net.run(imgIterations, True)
         else:
