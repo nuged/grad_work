@@ -3,6 +3,8 @@ from network import createNetwork, train, test
 import yaml
 import pandas as pd
 from time import time
+from math import ceil
+import gc, sys
 
 IMG_SIZE = 28
 
@@ -21,7 +23,6 @@ with open('parameters.yaml', "r") as f:
     baseParameters = yaml.safe_load(f)['modelParams']
 
 tunableParameters = pd.read_csv('parameters.csv')
-results = pd.DataFrame(columns=tunableParameters.columns.union(['pctCorrect']))
 
 for i, row in tunableParameters.iterrows():
     mode = row['mode']
@@ -30,31 +31,57 @@ for i, row in tunableParameters.iterrows():
     windowSize = row['windowSize']
     inputSize = windowSize * windowSize
 
-    updater = getUpdater(mode, step, direction, 10000)
+    updater = specificUpdater(7, ['down', 'down', 'right', 'up', 'up', 'right'])
 
     baseParameters['SP']['inputWidth'] = inputSize
     baseParameters['sensor']['width'] = windowSize
     baseParameters['sensor']['height'] = windowSize
     baseParameters['sensor']['explorer'] = yaml.dump(["regions.myExplorer", {"updater": updater}])
 
-    with open('test.csv', 'w') as f:
-        f.write('SPCC,TMCC,TMCpC,SP2CC,time,result\n')
+    #with open('test.csv', 'w') as f:
+    #    f.write('nCols,syPermCon,potPct,time,result\n')
 
-    for SPCC in [2048, 4096, 6144]:
-        for TMCC in [2048, 4096, 6144]:
-            for TMCpC in [4, 8, 16]:
-                for SP2CC in [2048, 4096]:
-                    baseParameters['SP']['columnCount'] = SPCC
-                    baseParameters['SP']['numActiveColumnsPerInhArea'] = SPCC // 25
-                    baseParameters['TM']['inputWidth'] = SPCC
-                    baseParameters['TM']['columnCount'] = TMCC
-                    baseParameters['TM']['cellsPerColumn'] = TMCpC
-                    baseParameters['SP2']['columnCount'] = SP2CC
-                    baseParameters['SP2']['numActiveColumnsPerInhArea'] = SP2CC // 25
-                    baseParameters['SP2']['inputWidth'] = TMCC * TMCpC
+    #with open('logs.txt', 'w') as f:
+    #    pass
 
-                    print '\n----------SP_CC=%d, SP_AC=%d, TM_CC=%d, TM_CpC=%d, SP2_CC=%d, SP2_AC=%d----------' % \
-                          (SPCC, SPCC // 25, TMCC, TMCpC, SP2CC, SP2CC // 25)
+    net = createNetwork(baseParameters)
+    start = time()
+    train(net, 'mnist')
+    pctCorrect = test(net, 'mnist')
+    t = time() - start
+
+    print pctCorrect, '\ttook %f sec' % (t)
+
+    exit(0)
+
+    counter = 0
+    for activationThreshold in [4, 8, 16]:
+        for initialPerm in [0.1, 0.3, 0.6, 0.9]:
+            for connectedPerm in [0.1, 0.3, 0.6, 0.9]:
+                for permanenceInc in [0.01, 0.05, 0.1]:
+
+                    counter += 1
+
+                    newSynapseCount = int(ceil(1.5 * activationThreshold))
+                    permanenceDec = permanenceInc / 10
+                    predictedSegmentDecrement = permanenceInc * 0.05
+
+                    claim = '\nstep %d:\n--------------actThr=%d, initPerm=%2.1f, conPerm=%2.1f, permInc=%3.2f-----------' \
+                            % (counter, activationThreshold, initialPerm, connectedPerm, permanenceInc)
+
+                    print claim
+
+                    with open('logs.txt', 'a') as f:
+                        print >>f, claim
+
+                    baseParameters['TM']['activationThreshold'] = activationThreshold
+                    baseParameters['TM']['initialPerm'] = initialPerm
+                    baseParameters['TM']['connectedPerm'] = connectedPerm
+                    baseParameters['TM']['permanenceInc'] = permanenceInc
+
+                    baseParameters['TM']['permanenceDec'] = permanenceDec
+                    baseParameters['TM']['newSynapseCount'] = newSynapseCount
+                    baseParameters['TM']['predictedSegmentDecrement'] = predictedSegmentDecrement
 
                     net = createNetwork(baseParameters)
                     start = time()
@@ -62,9 +89,42 @@ for i, row in tunableParameters.iterrows():
                     pctCorrect = test(net, 'mnist')
                     t = time() - start
 
-                    answer = '%d,%d,%d,%d,%f,%f\n' % (SPCC, TMCC, TMCpC, SP2CC, t, pctCorrect)
-
                     with open('test.csv', 'a') as f:
+                        answer = '%d,%2.1f,%2.1f,%3.2f,%6.3f,%4.2f\n' % \
+                                 (activationThreshold, initialPerm, connectedPerm, permanenceInc, t, pctCorrect)
                         f.write(answer)
 
-                    print pctCorrect, 'took %f sec' % t
+                    print pctCorrect, '\ttook %f sec' % (t)
+
+    exit(0)
+
+
+
+    counter = 0
+    for numActiveColumnsPerInhArea in [40, 80, 160]:
+        for synPermConnected in [0.1, 0.2, 0.4, 0.8]:
+            for potentialPct in [0.1, 0.2, 0.4, 0.8]:
+
+                counter += 1
+
+                claim = '\n---------------step=%03d, nActCols=%d, synPerm=%2.1f, potPct=%2.1f-----------' \
+                        % (counter, numActiveColumnsPerInhArea, synPermConnected, potentialPct)
+
+                print claim
+
+                baseParameters['SP2']['numActiveColumnsPerInhArea'] = numActiveColumnsPerInhArea
+                baseParameters['SP2']['synPermConnected'] = synPermConnected
+                baseParameters['SP2']['potentialPct'] = potentialPct
+
+                net = createNetwork(baseParameters)
+                start = time()
+                train(net, 'mnist')
+                pctCorrect = test(net, 'mnist')
+                t = time() - start
+
+                with open('test.csv', 'a') as f:
+                    answer = '%03d,%2.1f,%2.1f,%5.2f,%4.2f\n' %\
+                             (numActiveColumnsPerInhArea, synPermConnected, potentialPct, t, pctCorrect)
+                    f.write(answer)
+
+                print pctCorrect, '\ttook %f sec' % (t)

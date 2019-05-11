@@ -15,7 +15,7 @@ class myNetwork(Network):
         sp2 = self.regions['SP2']
         cls = self.regions['CLS']
 
-        if log:
+        if False:
             f = open('logs.txt', 'a')
             orig = sys.stdout
             sys.stdout = f
@@ -42,25 +42,25 @@ class myNetwork(Network):
                 sys.stdout = f
 
                 print '\n\nsensor'
-                #print sensor.getSelf().explorer[2].position
+                print sensor.getSelf().explorer[2].position
                 print sensor.getOutputData('resetOut')
                 sens_out = sensor.getOutputData('dataOut').reshape(10, 10)
                 for s in sens_out:
                     print ''.join('_' if e == 0 else '&' for e in s)
 
-                print '\nsp1'
-                sp1_in = sp.getInputData('bottomUpIn').reshape(10, 10)
+                #print '\nsp1'
+                #sp1_in = sp.getInputData('bottomUpIn').reshape(10, 10)
                 #for s in sp1_in:
                 #    print ''.join('_' if e == 0 else '&' for e in s)
-                print sp.getInputData('resetIn')
-                sp1_out = sp.getOutputData('bottomUpOut').reshape(16, 128)
-                for s in sp1_out:
-                    print ''.join('_' if e == 0 else '&' for e in s)
+                #print sp.getInputData('resetIn')
+                #sp1_out = sp.getOutputData('bottomUpOut').reshape(32, 128)
+                #for s in sp1_out:
+                #    print ''.join('_' if e == 0 else '&' for e in s)
 
                 print '\ntm'
                 #print np.all(tm.getInputData('bottomUpIn') == sp1_out.reshape(-1))
-                print tm.getInputData('resetIn')
-                tm_bu = tm.getOutputData('bottomUpOut').reshape(4, 16, 128)
+                #print tm.getInputData('resetIn')
+                tm_bu = tm.getOutputData('bottomUpOut').reshape(2, 50, 160)
 
                 print 'bottomUp'
                 for mat in tm_bu:
@@ -68,12 +68,12 @@ class myNetwork(Network):
                         print ''.join('_' if e == 0 else '&' for e in s)
                     print '\n'
 
-                print 'sp2'
+                #print 'sp2'
                 #print np.all(sp2.getInputData('bottomUpIn') == tm_bu.reshape(-1))
-                print sp2.getInputData('resetIn')
-                sp2_out = sp2.getOutputData('bottomUpOut').reshape(16, 128)
-                for s in sp2_out:
-                    print ''.join('_' if e == 0 else '&' for e in s)
+                #print sp2.getInputData('resetIn')
+                #sp2_out = sp2.getOutputData('bottomUpOut').reshape(16, 128)
+                #for s in sp2_out:
+                #    print ''.join('_' if e == 0 else '&' for e in s)
 
                 print '\ncls'
                 #print np.all(cls.getInputData('bottomUpIn') == sp2_out.reshape(-1))
@@ -140,7 +140,7 @@ def train(net, dataDir):
 
     imgIterations = sensor.getSelf().explorer[2].getImageIterations()
 
-    sensor.executeCommand(["loadMultipleImages", os.path.join(dataDir, "small_training")])
+    sensor.executeCommand(["loadMultipleImages", os.path.join(dataDir, "training")])
     numTrainingImages = sensor.getParameter("numImages")
 
     # ----------------------------------------Phase 1----------------------------------------
@@ -156,8 +156,9 @@ def train(net, dataDir):
     nTrainingIterations = numTrainingImages
     print "---Phase 1---"
     start = time()
-    for i in range(nTrainingIterations):
+    for i in range(nTrainingIterations * 2):
         net.run(imgIterations, False)
+
     print 'Finished in %06.2f sec' % (time() - start)
 
     # ----------------------------------------Phase 2----------------------------------------
@@ -170,11 +171,16 @@ def train(net, dataDir):
     sp2.setParameter("learningMode", 0)
     sp2.setParameter("inferenceMode", 0)
     nTrainingIterations = numTrainingImages
+
+
     print "---Phase 2---"
     start = time()
     for i in range(nTrainingIterations):
+        #print 'Phase 2, iter:\t%d, cat=%d-------------------------------------------------------------------------------------------' \
+        #      % (i, sensor.getOutputData('categoryOut'))
         net.run(imgIterations, False)
     print 'Finished in %06.2f sec' % (time() - start)
+    #tm.getSelf().finishLearning()
 
     # ----------------------------------------Phase 3----------------------------------------
     classifier.setParameter("inferenceMode", 0)
@@ -209,6 +215,10 @@ def train(net, dataDir):
         net.run(imgIterations, False)
     print 'Finished in %06.2f sec' % (time() - start)
 
+    print '\nnPatterns learned:', classifier.getParameter('patternCount')
+    print 'nPatterns stored:', classifier.getParameter('winnerCount')
+    print 'nCat learned:', classifier.getParameter('categoryCount'), '\n'
+
 
 def test(net, dataDir):
     sensor = net.regions["sensor"]
@@ -219,7 +229,7 @@ def test(net, dataDir):
 
     imgIterations = sensor.getSelf().explorer[2].getImageIterations()
 
-    sensor.executeCommand(["loadMultipleImages", os.path.join(dataDir, "small_testing")])
+    sensor.executeCommand(["loadMultipleImages", os.path.join(dataDir, "testing")])
 
     numTestImages = sensor.getParameter("numImages")
 
@@ -234,10 +244,24 @@ def test(net, dataDir):
 
     print('---Testing---')
     numCorrect = 0
-    every = 50
+    every = 1000
     for i in range(numTestImages):
-        net.run(imgIterations, False)
+        #if i % every == 42:s
+        #    sp.setParameter('logPathInput', 'logs/sp_in_%d.log' % i)
+        #    sp.setParameter('logPathOutput', 'logs/sp_out%d.log' % i)
+        #    tm.setParameter('logPathOutput', 'logs/tm_out%d.log' % i)
+        #    log = True
+        #else:
+        #    sp.setParameter('logPathInput', '')
+        #    sp.setParameter('logPathOutput', '')
+        #    tm.setParameter('logPathOutput', '')
+        #    log = False
+        if i == 48:
+            net.run(imgIterations, True)
+        else:
+            net.run(imgIterations, False)
         inferredCategory = classifier.getOutputData("categoriesOut").argmax()
+
         if sensor.getOutputData("categoryOut") == inferredCategory:
             numCorrect += 1
         if i % every == every - 1:

@@ -199,8 +199,8 @@ class myExplorer(BaseExplorer):
         return self.updater.getImageIterations()
 
     def first(self, center=True):
-        return BaseExplorer.first(self, False)
-
+        BaseExplorer.first(self, False)
+        self.position['offset'] = [5, 5]
 
 class mySP(SPRegion):
     pass

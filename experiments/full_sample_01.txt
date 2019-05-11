@@ -67,3 +67,28 @@ modelParams: # full 62.36, 72.9, 76.87
     "background": 1
     memoryLimit: 1024
 
+---Phase 1---
+Finished in 2685.13 sec
+---Phase 2---
+Finished in 2075.06 sec
+---Phase 3---
+Finished in 9831.87 sec
+---CLS training---
+Finished in 1718.98 sec
+
+nPatterns learned: 59755
+nPatterns stored: 0
+nCat learned: 10
+
+---Testing---
+	999-th iteration, nCorrect=871
+	1999-th iteration, nCorrect=1849
+	2999-th iteration, nCorrect=2560
+	3999-th iteration, nCorrect=3316
+	4999-th iteration, nCorrect=4051
+	5999-th iteration, nCorrect=4891
+	6999-th iteration, nCorrect=5780
+	7999-th iteration, nCorrect=6602
+	8999-th iteration, nCorrect=7055
+	9999-th iteration, nCorrect=7687
+76.87 	took 17917.367075 sec
