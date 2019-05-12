@@ -15,7 +15,7 @@ class myNetwork(Network):
         sp2 = self.regions['SP2']
         cls = self.regions['CLS']
 
-        if False:
+        if log:
             f = open('logs.txt', 'a')
             orig = sys.stdout
             sys.stdout = f
@@ -57,16 +57,16 @@ class myNetwork(Network):
                 #for s in sp1_out:
                 #    print ''.join('_' if e == 0 else '&' for e in s)
 
-                print '\ntm'
+                #print '\ntm'
                 #print np.all(tm.getInputData('bottomUpIn') == sp1_out.reshape(-1))
                 #print tm.getInputData('resetIn')
-                tm_bu = tm.getOutputData('bottomUpOut').reshape(2, 50, 160)
+                #tm_bu = tm.getOutputData('bottomUpOut').reshape(2, 50, 160)
 
-                print 'bottomUp'
-                for mat in tm_bu:
-                    for s in mat:
-                        print ''.join('_' if e == 0 else '&' for e in s)
-                    print '\n'
+                #print 'bottomUp'
+                #for mat in tm_bu:
+                #    for s in mat:
+                #        print ''.join('_' if e == 0 else '&' for e in s)
+                #    print '\n'
 
                 #print 'sp2'
                 #print np.all(sp2.getInputData('bottomUpIn') == tm_bu.reshape(-1))
@@ -75,9 +75,9 @@ class myNetwork(Network):
                 #for s in sp2_out:
                 #    print ''.join('_' if e == 0 else '&' for e in s)
 
-                print '\ncls'
+                #print '\ncls'
                 #print np.all(cls.getInputData('bottomUpIn') == sp2_out.reshape(-1))
-                print 'catOut:', cls.getOutputData('categoriesOut')
+                #print 'catOut:', cls.getOutputData('categoriesOut')
 
                 sys.stdout = orig
                 f.close()
@@ -266,8 +266,10 @@ def test(net, dataDir, fullSample=False):
         catVec = classifier.getOutputData("categoriesOut")
         inferredCategory = catVec.argmax()
         trueCategory = sensor.getOutputData("categoryOut")
+        #print catVec, trueCategory
         idx = int(trueCategory[0])
-        catVec[idx] =- 1
+        catVec[idx] -= 1
+        #print catVec
         se = np.square(catVec).sum()
         ses.append(se)
         if sensor.getOutputData("categoryOut") == inferredCategory:

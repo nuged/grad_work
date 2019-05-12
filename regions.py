@@ -3,7 +3,7 @@ from nupic.regions.sp_region import SPRegion
 from nupic.regions.sdr_classifier_region import SDRClassifierRegion
 from nupic.regions.knn_classifier_region import  KNNClassifierRegion
 from nupic.vision.regions.ImageSensor import ImageSensor
-import os, numpy
+import os, numpy, copy
 
 from nupic.bindings.math import GetNTAReal
 
@@ -200,7 +200,7 @@ class myExplorer(BaseExplorer):
 
     def first(self, center=True):
         BaseExplorer.first(self, False)
-        self.position['offset'] = self.updater.start
+        self.position['offset'] = copy.deepcopy(self.updater.start)
 
 class mySP(SPRegion):
     pass

@@ -2,33 +2,37 @@ import numpy as np
 import utils
 import os
 
+
 class BaseModel(object):
-    def __init__(self, numActions, imgSize=28, seed=42):
+    def __init__(self, numActions, epsilon=0.1, imgSize=28, seed=42, step=7):
         np.random.seed(seed)
-        self.numStates = imgSize * imgSize
+        gridSize = imgSize // step
+        self.gridSize = gridSize
+        self.numStates = gridSize * gridSize * (numActions + 1)
         self.numActions = numActions
-        self.policy = np.zeros(self.numStates, dtype=np.int)
+        self.policy = np.zeros((self.numStates, numActions))
         self.stateAction = np.full((self.numStates, self.numActions), np.nan)
         self.stateActionSequence = None
         self.stateActionCount = np.ones_like(self.stateAction, dtype=np.int)
+        self.epsilon = epsilon
 
     def initStateAction(self):
         for i in range(self.numStates):
-            offset = utils.getOffset(i)
+            offset = utils.getOffset(i % self.gridSize**2)
             possibleActions = utils.getPossibleActions(offset)
-            self.stateAction[i, possibleActions] = np.random.uniform(-100, 0, possibleActions.shape[0])
+            self.stateAction[i, possibleActions] = np.random.uniform(0, 10, possibleActions.shape[0])
 
     def initPolicy(self):
         for i in range(self.numStates):
-            action = np.nanargmax(self.stateAction[i])
-            self.policy[i] = action
+            mask = ~np.isnan(self.stateAction[i])
+            self.policy[i, mask] = 1. / np.count_nonzero(mask)
 
     def createActSequence(self, startState, length):
         sequence = []
         currentState = startState
         stateActionSequence = []
         for i in range(length):
-            action = self.policy[currentState]
+            action = np.random.choice([0, 1, 2, 3], p=self.policy[currentState])
             stateActionSequence.append((currentState, action))
             sequence.append(action)
             currentState = utils.updateState(currentState, action)
@@ -64,6 +68,7 @@ class BaseModel(object):
         self.policy = np.load(policyPath)
         self.stateAction = np.load(stateActPath)
 
+
 class ESModel(BaseModel):
 
     def __init__(self, *args, **kwargs):
@@ -92,5 +97,5 @@ if __name__ == '__main__':
     seed = np.random.randint(0, 256)
     model = ESModel(4, seed=seed)
     print seed
-    print model.createESSequence(10)
-    print model.stateActionSequence
+    print model.createActSequence(0, 8)
+    model.update(100)

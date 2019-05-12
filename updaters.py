@@ -1,5 +1,5 @@
 from math import ceil
-
+import copy
 
 class BasePosUpdater:
 
@@ -84,8 +84,10 @@ class specificUpdater:
         self.step = step
         self.moveList = moveList
         self.currentMove = 0
+        print self.start
 
     def getNextPosition(self, position):
+        #print position
         move = self.moveList[self.currentMove]
         if move == 2:
             position['offset'][1] -= self.step
@@ -99,7 +101,7 @@ class specificUpdater:
         if self.currentMove == len(self.moveList) - 1:
             self.currentMove = 0
             position['image'] += 1
-            position['offset'] = self.start
+            position['offset'] = copy.deepcopy(self.start)
         else:
             self.currentMove += 1
         return position
