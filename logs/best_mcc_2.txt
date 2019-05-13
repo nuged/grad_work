@@ -1,0 +1,14 @@
+start, actions =  [0, 14] [2, 1, 3, 1, 3, 1]
+nPatterns learned: 890
+---Testing---
+	24-th iteration, nCorrect=18
+	49-th iteration, nCorrect=35
+	74-th iteration, nCorrect=40
+	99-th iteration, nCorrect=47
+	124-th iteration, nCorrect=50
+	149-th iteration, nCorrect=51
+	174-th iteration, nCorrect=56
+	199-th iteration, nCorrect=60
+	224-th iteration, nCorrect=67
+	249-th iteration, nCorrect=78
+took 233.250649 sec, acc=31.20, mse= 0.82

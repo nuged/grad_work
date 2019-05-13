@@ -260,7 +260,7 @@ def test(net, dataDir, fullSample=False):
     ses = []
     for i in range(numTestImages):
         if i == 48:
-            net.run(imgIterations, True)
+            net.run(imgIterations, False)
         else:
             net.run(imgIterations, False)
         catVec = classifier.getOutputData("categoriesOut")
