@@ -1,6 +1,6 @@
 from updaters import *
 from network import createNetwork, train, test
-import yaml
+import yaml, utils
 import pandas as pd, numpy as np
 from time import time, sleep
 import utils
@@ -12,6 +12,8 @@ IMG_SIZE = 28
 WINDOW_SIZE = 10
 STEP = 7
 SEQ_SIZE = 6
+actions = [0, 2, 2, 1, 1, 3]
+startState = [14, 14]
 
 with open('parameters.yaml', "r") as f:
     baseParameters = yaml.safe_load(f)['modelParams']
@@ -20,19 +22,29 @@ baseParameters['SP']['inputWidth'] = WINDOW_SIZE * WINDOW_SIZE
 baseParameters['sensor']['width'] = WINDOW_SIZE
 baseParameters['sensor']['height'] = WINDOW_SIZE
 
-model = BaseModel(4, epsilon=0.2, seed=90)
+size = 0
+model = BaseModel(4, epsilon=0.4, seed=333, historySize=size)
 
-for i in range(100):
-    if i % 10 == 0:
+for i in range(180):
+    if i == 60:
+        size = 1
+        model = BaseModel(4, epsilon=0.4, seed=333, historySize=size)
+
+    if i == 120:
+        size = 2
+        model = BaseModel(4, epsilon=0.4, seed=333, historySize=size)
+
+    if i % 5 == 0:
         startState, actions = model.BestSequence(SEQ_SIZE)
         print '--------------------------------EVAL------------------------------'
     else:
-        startState, actions = model.RandomStartSequence(SEQ_SIZE)
+        startState, actions = model.CenterSequence(SEQ_SIZE)
         print '-------------------------------TRAIN------------------------------'
 
     actions = map(int, actions)
     startState = map(int, startState)
     print '\nstart, actions = ', startState, actions
+
     updater = specificUpdater(STEP, actions, startState)
     baseParameters['sensor']['explorer'] = yaml.dump(["regions.myExplorer", {"updater": updater}])
 
@@ -41,19 +53,18 @@ for i in range(100):
     train(net, 'mnist')
     acc, mse = test(net, 'mnist')
     t = time() - start
-    print 'took %f sec, acc=%4.2f, mse=%5.2f\n' % (t, acc, mse)
+    print 'took %f sec, acc=%4.2f\n' % (t, acc)
 
-    with open('logs/mcc_5.txt', 'a') as f:
-        if i % 10 == 0:
-            print >> f, startState, actions, acc, mse, 'eval'
+    with open('logs/historic/size_%d.txt' % size, 'a') as f:
+        if i % 5 == 0:
+            print >> f, startState, actions, acc, 'eval'
         else:
-            print >> f, startState, actions, acc, mse
+            print >> f, startState, actions, acc, 'train'
 
     try:
-        if i % 10 == 0 and i > 0:
-            model.save('models/epsilon-greedy/2e-1')
-        else:
-            model.update(acc)
+        if i % 5 == 0 and i > 0:
+            model.save('models/historic/size_%d' % size)
+        model.update(acc)
     except:
         gc.collect()
         print i, 'failed'

@@ -2,7 +2,7 @@ modelParams: # full 62.36, 72.9, 76.87
 
   "SP":
     numActiveColumnsPerInhArea : 80 # checked
-    columnCount : 4000 # ok
+    columnCount : 2000 # ok
     "spatialImp": cpp
     "synPermConnected": 0.8 # checked
     "globalInhibition": 1 # ok
@@ -19,9 +19,9 @@ modelParams: # full 62.36, 72.9, 76.87
 
   TM:
     verbosity: 0
-    columnCount: 4000                                   # ok
-    cellsPerColumn: 4                                   # ok
-    inputWidth: 4000
+    columnCount: 2000                                   # ok
+    cellsPerColumn: 2                                   # ok
+    inputWidth: 2000
     seed: 1960
     temporalImp: tm_cpp
 
@@ -29,7 +29,7 @@ modelParams: # full 62.36, 72.9, 76.87
     minThreshold: 2                                     # ok
     newSynapseCount: 12                                 # on actThr
     initialPerm: 0.1                                    # checked
-    connectedPerm: 0.9                                  # checked
+    connectedPerm: 0.45                                  # checked
     permanenceInc: 0.01                                 # checked
     permanenceDec: 0.01                                # on Inc
     predictedSegmentDecrement: 0.0005                   # on Inc
@@ -39,16 +39,16 @@ modelParams: # full 62.36, 72.9, 76.87
 
   "SP2":
     columnCount : 2000                                 # ok
-    inputWidth : 16000
-    numActiveColumnsPerInhArea : 160                   # checked
+    inputWidth : 4000
+    numActiveColumnsPerInhArea : 80                   # checked
     "spatialImp": cpp
-    "synPermConnected": 0.8                            # checked
+    "synPermConnected": 0.3                            # checked
     "globalInhibition": 1                              # ok
-    "potentialPct": 0.1                                # checked
+    "potentialPct": 0.3                                # checked
     spVerbosity: 0
     seed: 1956
-    synPermActiveInc: 0.04
-    synPermInactiveDec: 0.005
+    synPermActiveInc: 0.1
+    synPermInactiveDec: 0.1
     boostStrength: 2
     potentialRadius: 16                                # ok
 

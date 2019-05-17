@@ -27,13 +27,26 @@ class myNetwork(Network):
 
             sys.stdout = orig
             f.close()
-
+        sp2Learning = sp2.getParameter('learningMode')
+        sp2Inference = sp2.getParameter('inferenceMode')
         clsLearning = cls.getParameter('learningMode')
+        clsInference = cls.getParameter('inferenceMode')
+
         cls.setParameter('learningMode', 0)
+        cls.setParameter('inferenceMode', 0)
+        sp2.setParameter('learningMode', 0)
+        sp2.setParameter('inferenceMode', 0)
 
         for i in range(n):
             if i == n - 1 and clsLearning:
                 cls.setParameter('learningMode', 1)
+            if i == n - 1 and sp2Learning:
+                sp2.setParameter('learningMode', 1)
+            if i == n - 1 and sp2Inference:
+                sp2.setParameter('inferenceMode', 1)
+            if i == n - 1 and clsInference:
+                cls.setParameter('inferenceMode', 1)
+
             if log:
                 Network.run(self, 1)
 
@@ -242,7 +255,7 @@ def test(net, dataDir, fullSample=False):
     numTestImages = sensor.getParameter("numImages")
     end = time()
 
-    print '\nLoaded %d training samples in %3.2f seconds' % (numTestImages, (end-start))
+    print '\nLoaded %d testing samples in %3.2f seconds' % (numTestImages, (end-start))
 
     classifier.setParameter("inferenceMode", 1)
     classifier.setParameter("learningMode", 0)

@@ -1,27 +1,37 @@
 import numpy as np
 import utils
 import os
-
+from collections import deque
 
 class BaseModel(object):
-    def __init__(self, numActions, epsilon=0.1, imgSize=28, seed=42, step=7):
+    def __init__(self, gridSize, numActions=4, imgSize=28, step=7, historySize=1, epsilon=0.1, seed=42):
+
         np.random.seed(seed)
-        gridSize = imgSize // step
         self.gridSize = gridSize
-        self.numStates = gridSize * gridSize * (numActions + 1)
+        self.imgSize = imgSize
+        self.step = step
+        self.historySize = historySize
         self.numActions = numActions
+
+        self.history = deque(maxlen=self.historySize)
+
+        self.numStates = self.gridSize**2
+        for i in range(historySize):
+            self.numStates += self.numActions ** (i + 1) * self.gridSize**2
+
         self.policy = np.zeros((self.numStates, numActions))
         self.stateAction = np.full((self.numStates, self.numActions), np.nan)
         self.stateActionSequence = None
         self.stateActionCount = np.ones_like(self.stateAction, dtype=np.int)
         self.epsilon = epsilon
+
         self.initStateAction()
         self.initPolicy()
 
     def initStateAction(self):
         for i in range(self.numStates):
-            offset = utils.getOffset(i % self.gridSize**2)
-            possibleActions = utils.getPossibleActions(offset)
+            offset = utils.getOffset(i % self.gridSize**2, self.gridSize, self.step)
+            possibleActions = utils.getPossibleActions(offset, self.imgSize, self.step)
             self.stateAction[i, possibleActions] = 0
 
     def initPolicy(self):
@@ -29,18 +39,24 @@ class BaseModel(object):
             mask = ~np.isnan(self.stateAction[i])
             self.policy[i, mask] = 1. / np.count_nonzero(mask)
 
-    def createActSequence(self, startState, length, random=True):
+    def createSequence(self, startState, length, random=True):
+        '''
+        Creates state-action sequence, starting from startState and following current policy
+        '''
         sequence = []
         currentState = startState
         stateActionSequence = []
+
         for i in range(length):
             if random:
                 action = np.random.choice([0, 1, 2, 3], p=self.policy[currentState])
             else:
                 action = np.argmax(self.policy[currentState])
+            self.history.append(action)
             stateActionSequence.append((currentState, action))
             sequence.append(action)
-            currentState = utils.updateState(currentState, action)
+            currentState = utils.updateState(currentState, action, self.history, self.gridSize, self.step)
+
         self.stateActionSequence = stateActionSequence[::-1]
         return sequence
 
@@ -60,6 +76,10 @@ class BaseModel(object):
                             self.policy[state, act] = \
                                 self.epsilon / np.count_nonzero(self.policy[state])
 
+    def CenterSequence(self, length):
+        start = self.gridSize // 2 * self.gridSize + self.gridSize // 2
+        return utils.getOffset(start, self.gridSize, self.step), self.createSequence(start, length, random=True)
+
     def getStart(self):
         state = np.random.randint(0, self.gridSize ** 2)
         action = np.random.choice(self.stateAction[state, ~np.isnan(self.stateAction[state])])
@@ -67,82 +87,63 @@ class BaseModel(object):
         return state, action[0]
 
     def BestSequence(self, length):
-        state = np.nanargmax(self.stateAction[:self.gridSize**2]) // self.numActions
-        sequence = self.createActSequence(state, length, random=False)
-        return utils.getOffset(state), sequence
+        state = self.gridSize // 2 * self.gridSize + self.gridSize // 2
+        sequence = self.createSequence(state, length, random=False)
+        return utils.getOffset(state, self.gridSize, self.step), sequence
 
     def RandomStartSequence(self, length):
         assert length > 0
         start, action = self.getStart()
-        nextState = utils.updateState(start, action)
+        self.history.append(action)
+        nextState = utils.updateState(start, action, self.history, self.gridSize, self.step)
         sequence = [action]
-        sequence.extend(self.createActSequence(nextState, length - 1))
+        sequence.extend(self.createSequence(nextState, length - 1))
         self.stateActionSequence.append((start, action))
-        return utils.getOffset(start % self.gridSize**2), sequence
+        return utils.getOffset(start % self.gridSize**2, self.gridSize, self.step), sequence
 
     def save(self, dirPath):
+        if not os.path.exists(dirPath):
+            os.makedirs(dirPath)
         count = len([name for name in os.listdir(dirPath)]) // 3
-        policyPath = os.path.join(dirPath, 'policy_%02d.npy' % count)
-        stateActPath = os.path.join(dirPath, 'stateAction_%02d.npy' % count)
-        countPath = os.path.join(dirPath, 'stateActionCount_%02d.npy' % count)
-        np.save(policyPath, self.policy)
-        np.save(stateActPath, self.stateAction)
-        np.save(countPath, self.stateActionCount)
+        policyPath = os.path.join(dirPath, 'policy_%02d.txt' % count)
+        stateActPath = os.path.join(dirPath, 'stateAction_%02d.txt' % count)
+        countPath = os.path.join(dirPath, 'stateActionCount_%02d.txt' % count)
+
+        np.savetxt(policyPath, self.policy)
+        np.savetxt(stateActPath, self.stateAction)
+        np.savetxt(countPath, self.stateActionCount)
 
     def load(self, dirPath, version='latest'):
         if version == 'latest':
-            count = len([name for name in os.listdir('.') if name]) // 3
-            policyPath = os.path.join(dirPath, 'policy_%02d.npy' % count)
-            stateActPath = os.path.join(dirPath, 'stateAction_%02d.npy' % count)
-            stateActCountPath = os.path.join(dirPath, 'stateActionCount_%02d.npy' % count)
+            count = len([name for name in os.listdir(dirPath) if name]) // 3
+            policyPath = os.path.join(dirPath, 'policy_%02d.txt' % (count - 1))
+            stateActPath = os.path.join(dirPath, 'stateAction_%02d.txt' % (count - 1))
+            stateActCountPath = os.path.join(dirPath, 'stateActionCount_%02d.txt' % (count - 1))
         elif isinstance(version, (int, long)):
-            policyPath = os.path.join(dirPath, 'policy_%02d.npy' % version)
-            stateActPath = os.path.join(dirPath, 'stateAction_%02d.npy' % version)
-            stateActCountPath = os.path.join(dirPath, 'stateActionCount_%02d.npy' % version)
+            policyPath = os.path.join(dirPath, 'policy_%02d.txt' % version)
+            stateActPath = os.path.join(dirPath, 'stateAction_%02d.txt' % version)
+            stateActCountPath = os.path.join(dirPath, 'stateActionCount_%02d.txt' % version)
         else:
             raise AttributeError('Unknown version')
 
         if os.path.exists(policyPath):
-            self.policy = np.load(policyPath)
+            self.policy = np.loadtxt(policyPath)
         else:
             print 'Failed to load from %s' % policyPath
 
         if os.path.exists(stateActPath):
-            self.stateAction = np.load(stateActPath)
+            self.stateAction = np.loadtxt(stateActPath)
         else:
             print 'Failed to load from %s' % stateActPath
 
         if os.path.exists(stateActCountPath):
-            self.stateActionCount = np.load(stateActCountPath)
+            self.stateActionCount = np.loadtxt(stateActCountPath)
         else:
             print 'Failed to load from %s' % stateActCountPath
 
-class ESModel(BaseModel):
-
-    def __init__(self, *args, **kwargs):
-        super(ESModel, self).__init__(*args, **kwargs)
-        self.initStateAction()
-        self.initPolicy()
-
-    def getStart(self):
-        state = np.random.randint(0, self.numStates)
-        action = np.random.choice(self.stateAction[state, ~np.isnan(self.stateAction[state])])
-        action, = np.where(self.stateAction[state, :] == action)
-        return state, action[0]
-
-    def createESSequence(self, length):
-        assert length > 0
-        start, action = self.getStart()
-        nextState = utils.updateState(start, action)
-        sequence = [action]
-        sequence.extend(self.createActSequence(nextState, length - 1))
-        self.stateActionSequence.append((start, action))
-        return utils.getOffset(start), sequence
-
 
 if __name__ == '__main__':
-    model = BaseModel(4, seed=90)
-    model.load('models/epsilon-greedy', version=13)
-    start, acts = model.BestSequence(6)
-    acts = map(int, acts)
-    print type(start[0])
+    for i in range(10):
+        model = BaseModel(4, seed=i, historySize=0)
+        print model.CenterSequence(6)
+        print model.BestSequence(6)
