@@ -47,22 +47,51 @@ def getPossibleActions(offset, imgSize, step):
         actions.append(3)
     return np.array(actions)
 
-def writeResults(data, filename, first=False):
-    fields = ['columnCount', 'activationThreshold', 'cellsPerColumn', 'connectedPerm', 'permanenceInc',
-              'minThreshold', 'permanenceDec', 'initialPerm', 'seed', 'newSynapseCount', 'predictedSegmentDecrement',
-              'time', 'result']
+def writeResults(filename, data, n_patterns, result, time, first=False):
+    stoplist = ['spatialImp', 'spVerbosity', 'seed', 'verbosity', 'inputWidth', 'temporalImp', 'globalInhibition']
+
+    data['numPatterns'] = n_patterns
+    data['result'] = result
+    data['time'] = time
 
     csv_file = filename
     try:
         with open(csv_file, 'a') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=fields)
+            writer = csv.DictWriter(csvfile, fieldnames=[key for key in data if key not in stoplist])
             if first:
                 writer.writeheader()
-            writer.writerow({key: data[key] for key in data if key in fields})
+            writer.writerow({key: data[key] for key in data if key not in stoplist})
     except IOError:
         print("I/O error")
     data.pop('time')
     data.pop('result')
+    data.pop('numPatterns')
+
+
+def nextParamPos(positions, max):
+    for i in range(len(positions)-1, -1, -1):
+        if positions[i] < max[i] - 1:
+            positions[i] += 1
+            break
+        else:
+            positions[i] = 0
+    return positions
+
+
+def genParams(baseParams, source):
+    n_params = len(source)
+    current_positions = [0 for param in source]
+    max_positions = [len(source[param]) for param in source]
+    n_iters = np.prod(max_positions)
+    for i in range(n_iters):
+        current_params = {param : source[param][current_positions[j]] for j, param in enumerate(source)}
+        baseParams.update(current_params)
+        yield baseParams
+        current_positions = nextParamPos(current_positions, max_positions)
+
 
 if __name__ == '__main__':
-    print getIndex([6, 7], 4, 7)
+    d = {'a' : 0, 'b' : 2, 'c' : 3}
+    source = {'a' : [-1, -2, -3], 'b' : [10, 20, 30]}
+    for d in genParams(d, source):
+        print d

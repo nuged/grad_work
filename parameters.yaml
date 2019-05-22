@@ -1,66 +1,64 @@
-modelParams: # full 62.36, 72.9, 76.87
+modelParams:
 
   "SP":
-    numActiveColumnsPerInhArea : 80 # checked
-    columnCount : 2000 # ok
+    numActiveColumnsPerInhArea : 80
+    columnCount : 2000
     "spatialImp": cpp
-    "synPermConnected": 0.8 # checked
-    "globalInhibition": 1 # ok
-    "potentialPct": 0.4 # checked
+    "synPermConnected": 0.8
+    "globalInhibition": 1
+    "potentialPct": 0.4
     spVerbosity: 0
     seed: 1956
-    synPermActiveInc: 0.01       # may be better, but ok
-    synPermInactiveDec: 0.001    # may be better, but ok
+    synPermActiveInc: 0.01
+    synPermInactiveDec: 0.001
     boostStrength: 0
     dutyCyclePeriod: 16
-    potentialRadius: 16          # checked
+    potentialRadius: 16
     stimulusThreshold: 2
 
 
   TM:
     verbosity: 0
-    columnCount: 2000                                   # ok
-    cellsPerColumn: 2                                   # ok
+    columnCount: 2000
+    cellsPerColumn: 2
     inputWidth: 2000
     seed: 1960
     temporalImp: tm_cpp
 
-    activationThreshold: 8                              # checked
-    minThreshold: 2                                     # ok
-    newSynapseCount: 12                                 # on actThr
-    initialPerm: 0.1                                    # checked
-    connectedPerm: 0.45                                  # checked
-    permanenceInc: 0.01                                 # checked
-    permanenceDec: 0.01                                # on Inc
-    predictedSegmentDecrement: 0.0005                   # on Inc
+    activationThreshold: 8
+    minThreshold: 2
+    newSynapseCount: 12
+    initialPerm: 0.1
+    connectedPerm: 0.45
+    permanenceInc: 0.01
+    permanenceDec: 0.01
+    predictedSegmentDecrement: 0.0005
     checkSynapseConsistency: 0
 
 
 
   "SP2":
-    columnCount : 2000                                 # ok
+    columnCount : 2000
     inputWidth : 4000
-    numActiveColumnsPerInhArea : 80                   # checked
+    numActiveColumnsPerInhArea : 80
     "spatialImp": cpp
-    "synPermConnected": 0.3                            # checked
-    "globalInhibition": 1                              # ok
-    "potentialPct": 0.3                                # checked
+    "synPermConnected": 0.3
+    "globalInhibition": 1
+    "potentialPct": 0.3
     spVerbosity: 0
     seed: 1956
     synPermActiveInc: 0.1
     synPermInactiveDec: 0.1
     boostStrength: 2
-    potentialRadius: 16                                # ok
+    potentialRadius: 16
 
 
-  "CLS": # SDRCls : 77.3%, 85.3%
-    "distThreshold": 4                                   # 4!!! if k=16
+  "CLS":
+    "distThreshold": 4
     maxCategoryCount: 10
-    k : 16                                               # 16!!!
-    distanceMethod: "rawOverlap"    # norm, rawOverlap, pctOverlapOfLarger, pctOverlapOfProto, pctOverlapOfInput
-    #"alpha" : 0.2 # 0.5 = 59.2, 47.9, 62.1, 62.0, 62.5, 63.6, 61.7
+    k : 16
+    distanceMethod: "rawOverlap"
     "verbosity" : 0
-    #"implementation" : "cpp"
 
   "sensor":
     "mode": "bw"

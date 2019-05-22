@@ -1,11 +1,8 @@
 from updaters import *
 from network import createNetwork, train, test
-import yaml, utils
-import pandas as pd, numpy as np
-from time import time, sleep
-import utils
-from math import ceil
-import gc, sys, copy
+import yaml
+from time import time
+import gc
 from reinforcement import BaseModel
 
 IMG_SIZE = 28
@@ -55,7 +52,7 @@ for i in range(180):
     t = time() - start
     print 'took %f sec, acc=%4.2f\n' % (t, acc)
 
-    with open('logs/historic/size_%d.txt' % size, 'a') as f:
+    with open('logs/historic/size_%d_1.txt' % size, 'a') as f:
         if i % 5 == 0:
             print >> f, startState, actions, acc, 'eval'
         else:

@@ -1,2 +1,0 @@
-columnCount,activationThreshold,cellsPerColumn,connectedPerm,permanenceInc,minThreshold,permanenceDec,initialPerm,seed,newSynapseCount,predictedSegmentDecrement
-2000,8,2,0.45,0.01,2,0.01,0.1,1960,12,0.0005

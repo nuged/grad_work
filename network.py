@@ -27,21 +27,18 @@ class myNetwork(Network):
 
             sys.stdout = orig
             f.close()
-        sp2Learning = sp2.getParameter('learningMode')
+
         sp2Inference = sp2.getParameter('inferenceMode')
         clsLearning = cls.getParameter('learningMode')
         clsInference = cls.getParameter('inferenceMode')
 
         cls.setParameter('learningMode', 0)
         cls.setParameter('inferenceMode', 0)
-        sp2.setParameter('learningMode', 0)
         sp2.setParameter('inferenceMode', 0)
 
         for i in range(n):
             if i == n - 1 and clsLearning:
                 cls.setParameter('learningMode', 1)
-            if i == n - 1 and sp2Learning:
-                sp2.setParameter('learningMode', 1)
             if i == n - 1 and sp2Inference:
                 sp2.setParameter('inferenceMode', 1)
             if i == n - 1 and clsInference:
@@ -57,7 +54,7 @@ class myNetwork(Network):
                 print '\n\nsensor'
                 print sensor.getSelf().explorer[2].position
                 print sensor.getOutputData('resetOut')
-                sens_out = sensor.getOutputData('dataOut').reshape(10, 10)
+                sens_out = sensor.getOutputData('dataOut').reshape(18, 18)
                 for s in sens_out:
                     print ''.join('_' if e == 0 else '&' for e in s)
 
@@ -70,7 +67,7 @@ class myNetwork(Network):
                 #for s in sp1_out:
                 #    print ''.join('_' if e == 0 else '&' for e in s)
 
-                #print '\ntm'
+                #sprint '\ntm'
                 #print np.all(tm.getInputData('bottomUpIn') == sp1_out.reshape(-1))
                 #print tm.getInputData('resetIn')
                 #tm_bu = tm.getOutputData('bottomUpOut').reshape(2, 50, 160)
@@ -233,7 +230,7 @@ def train(net, dataDir, fullSample=False):
         net.run(imgIterations, False)
     print '\tFinished in %06.2f sec' % (time() - start)
 
-    print '\nnPatterns learned:', classifier.getParameter('patternCount')
+    return classifier.getParameter('patternCount')
 
 
 def test(net, dataDir, fullSample=False):
@@ -273,22 +270,15 @@ def test(net, dataDir, fullSample=False):
     ses = []
     for i in range(numTestImages):
         if i == 48:
-            net.run(imgIterations, False)
+            net.run(imgIterations, True)
         else:
             net.run(imgIterations, False)
         catVec = classifier.getOutputData("categoriesOut")
         inferredCategory = catVec.argmax()
-        trueCategory = sensor.getOutputData("categoryOut")
-        #print catVec, trueCategory
-        idx = int(trueCategory[0])
-        catVec[idx] -= 1
-        #print catVec
-        se = np.square(catVec).sum()
-        ses.append(se)
+
         if sensor.getOutputData("categoryOut") == inferredCategory:
             numCorrect += 1
         if i % every == every - 1:
             print "\t%d-th iteration, nCorrect=%d" % (i, numCorrect)
-    mse = np.mean(ses)
 
-    return (100.0 * numCorrect) / numTestImages, mse
+    return (100.0 * numCorrect) / numTestImages
