@@ -1,8 +1,8 @@
 modelParams:
 
   "SP":
-    numActiveColumnsPerInhArea : 120
-    columnCount : 2048
+    numActiveColumnsPerInhArea : 80
+    columnCount : 2000
     "spatialImp": cpp
     "synPermConnected": 0.8
     "globalInhibition": 1
@@ -19,28 +19,28 @@ modelParams:
 
   TM:
     verbosity: 0
-    columnCount: 2048
-    cellsPerColumn: 3
-    inputWidth: 2048
+    columnCount: 2000
+    cellsPerColumn: 2
+    inputWidth: 2000
     seed: 1960
     temporalImp: tm_cpp
 
     activationThreshold: 8
     minThreshold: 2
     newSynapseCount: 12
-    initialPerm: 0.5
-    connectedPerm: 0.1
+    initialPerm: 0.1
+    connectedPerm: 0.45
     permanenceInc: 0.01
     permanenceDec: 0.01
-    predictedSegmentDecrement: 0.00005
+    predictedSegmentDecrement: 0.0005
     checkSynapseConsistency: 0
 
 
 
   "SP2":
-    columnCount : 2048
-    inputWidth : 6144
-    numActiveColumnsPerInhArea : 120
+    columnCount : 2000
+    inputWidth : 4000
+    numActiveColumnsPerInhArea : 80
     "spatialImp": cpp
     "synPermConnected": 0.3
     "globalInhibition": 1
@@ -56,7 +56,7 @@ modelParams:
   "CLS":
     "distThreshold": 4
     maxCategoryCount: 10
-    k : 32
+    k : 16
     distanceMethod: "rawOverlap"
     "verbosity" : 0
 

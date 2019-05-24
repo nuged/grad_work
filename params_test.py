@@ -10,11 +10,12 @@ STEP = 12
 actions = [1, 3, 1]
 startState = [0, 0]
 
-REGION = 'SP'
-NEXT_REGION = 'TM'
+REGION = 'TM'
 
-params = {'numActiveColumnsPerInhArea' : [40, 60, 80, 100, 120],
-          'columnCount' : [1024, 2048, 4096]}
+params = {'initialPerm' : [0.1, 0.5, 0.9],
+          'connectedPerm' : [0.1, 0.5, 0.9],
+          'permanenceInc' : [0.001, 0.01, 0.1],
+          'permanenceDec' : [0.001, 0.01, 0.1]}
 
 with open('parameters.yaml', "r") as f:
     baseParameters = yaml.safe_load(f)['modelParams']
@@ -28,16 +29,22 @@ baseParameters['sensor']['explorer'] = yaml.dump(["regions.myExplorer", {"update
 
 first = True
 for regionParameters in utils.genParams(baseParameters[REGION], params):
-    baseParameters[NEXT_REGION]['inputWidth'] = regionParameters['columnCount']
-    baseParameters[NEXT_REGION]['columnCount'] = regionParameters['columnCount']
+    if REGION == 'SP':
+        baseParameters['TM']['inputWidth'] = regionParameters['columnCount']
+        baseParameters['TM']['columnCount'] = regionParameters['columnCount']
+        baseParameters['SP2']['inputWidth'] = regionParameters['columnCount'] * baseParameters['TM']['cellsPerColumn']
+    elif REGION == 'TM':
+        baseParameters['SP2']['inputWidth'] = regionParameters['columnCount'] * baseParameters['TM']['cellsPerColumn']
+
+    baseParameters['TM']['predictedSegmentDecrement'] = baseParameters['TM']['permanenceInc'] * 0.05
 
     net = createNetwork(baseParameters)
     start = time()
-    #n_patterns = train(net, 'mnist')
+    n_patterns = train(net, 'mnist')
     acc = test(net, 'mnist')
     t = time() - start
 
     print 'took %f sec, acc=%4.2f\n' % (t, acc)
-    break
-    utils.writeResults('%s_result.csv' % REGION, regionParameters, n_patterns, acc, t, first)
-    first = False
+
+    utils.writeResults('%s_result.csv' % REGION, baseParameters['TM'], n_patterns, acc, t, first)
+

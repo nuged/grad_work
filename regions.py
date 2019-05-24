@@ -11,20 +11,7 @@ _REAL_NUMPY_DTYPE = GetNTAReal()
 
 class mySensor(ImageSensor):
 
-    @classmethod
-    def getSpec(cls):
-        ns = ImageSensor.getSpec()
-
-        ns['inputs']['feedback'] = {'count': 0,
-                                    'dataType': 'Real32',
-                                    'description': 'Feedback',
-                                    'isDefaultInput': True,
-                                    'regionLevel': False,
-                                    'requireSplitterMap': False,
-                                    'required': True}
-        return ns
-
-    def compute(self, inputs=None, outputs=None):
+    def Xcompute(self, inputs=None, outputs=None):
         """
         Generate the next sensor output and send it out.
         This method is called by the runtime engine.
@@ -187,11 +174,9 @@ class myExplorer(BaseExplorer):
     def __init__(self, updater, *args, **kwargs):
         BaseExplorer.__init__(self, *args, **kwargs)
         self.updater = updater
-        self.iteration = 0
 
     def next(self, seeking=False):
         self.position = self.updater.getNextPosition(self.position)
-        self.iteration += 1
         if self.position['image'] == self.numImages:
             self.position['image'] = 0
 
@@ -202,9 +187,66 @@ class myExplorer(BaseExplorer):
         BaseExplorer.first(self, False)
         self.position['offset'] = copy.deepcopy(self.updater.start)
 
+
 class mySP(SPRegion):
     pass
 
 
 class myClassifier(KNNClassifierRegion):
     pass
+
+
+class secondExplorer(BaseExplorer):
+    def __init__(self, start, length, step, *args, **kwargs):
+        BaseExplorer.__init__(self, *args, **kwargs)
+        self.start = start
+        self.currentMove = 0
+        self.length = length
+        self.step = step
+        self.firstIter = True
+
+    def setMoveList(self, moveList):
+        self.moveList = moveList
+
+    def addAction(self, action):
+        self.moveList.append(action)
+
+    def next(self, seeking=False):
+        if self.firstIter:
+            self.firstIter = False
+            return
+
+        if self.currentMove == self.length - 1:
+            self.currentMove = 0
+            if self.position['image'] < 400:
+                self.position['image'] += 100
+            else:
+                self.position['image'] -= 399
+            self.position['offset'] = copy.deepcopy(self.start)
+            if self.position['image'] == self.numImages - 1:
+                self.position['image'] = 0
+            return
+
+        move = self.moveList[self.currentMove]
+        if move == 2:
+            self.position['offset'][1] -= self.step
+        elif move == 3:
+            self.position['offset'][1] += self.step
+        elif move == 0:
+            self.position['offset'][0] -= self.step
+        elif move == 1:
+            self.position['offset'][0] += self.step
+
+        self.currentMove += 1
+
+
+    def first(self, center=True):
+        BaseExplorer.first(self, False)
+        self.position['offset'] = copy.deepcopy(self.start)
+        self.firstIter = True
+        self.currentMove = 0
+
+    def getImageIterations(self):
+        return self.length
+
+

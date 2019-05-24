@@ -1,41 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac3145f9-5f67-4f54-80c9-d522f453c9d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/plot_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="ac3145f9-5f67-4f54-80c9-d522f453c9d3" name="Default Changelist" comment="removed unnecessary code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/tests-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TM_results.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/df_look.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/SP1_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/SP1_test_0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/SP1_test_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/SP2_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/SP2_test_0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/SP2_test_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/TM_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/TM_test_0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/TM_test_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/full_sample_01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/results.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/results_2cells.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/results_4cells.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/some.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/test_0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/test_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SP_result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/SP_result.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/historic/size_0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/historic/size_0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/network.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parameters.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/parameters.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_npy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/logs/historic/test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_params.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/updaters.py" beforeDir="false" afterPath="$PROJECT_DIR$/updaters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/params_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/params_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regions.py" beforeDir="false" afterPath="$PROJECT_DIR$/regions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reinforcement.py" beforeDir="false" afterPath="$PROJECT_DIR$/reinforcement.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+            <state relative-caret-position="361">
+              <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -76,43 +51,56 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils.py">
+        <entry file="file://$PROJECT_DIR$/network.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="50" column="112" selection-start-line="50" selection-start-column="112" selection-end-line="50" selection-end-column="112" />
+            <state relative-caret-position="41">
+              <caret line="408" column="4" selection-start-line="408" selection-start-column="4" selection-end-line="408" selection-end-column="4" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/params_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#174#3390#0" />
+                <element signature="e#398#731#0" />
+                <element signature="e#11647#12855#1" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SP_result.csv">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/regions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="225" column="59" selection-start-line="225" selection-start-column="59" selection-end-line="225" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#79#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network.py">
+        <entry file="file://$PROJECT_DIR$/reinforcement.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-627">
-              <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+            <state relative-caret-position="319">
+              <caret line="218" column="66" selection-start-line="218" selection-start-column="66" selection-end-line="218" selection-end-column="66" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#3616#5104#0" />
+                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#212#954#0" />
+                <element signature="e#995#1252#0" />
+                <element signature="e#1288#1432#0" />
+                <element signature="e#1505#2255#0" />
+                <element signature="e#3442#3682#0" />
+                <element signature="e#4457#4961#0" />
+                <element signature="e#5018#6266#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TM_result_best.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -120,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parameters.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-660">
-              <caret line="7" column="21" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="383">
+              <caret line="58" column="10" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -137,8 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>maxAfe</find>
-      <find>global</find>
       <find>min</find>
       <find>output</find>
       <find>False</find>
@@ -167,6 +153,8 @@
       <find>35.08</find>
       <find>0.5</find>
       <find>SEQ</find>
+      <find>self.imgSize</find>
+      <find>startPosi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,8 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/create_testing_sample.sh" />
-        <option value="$PROJECT_DIR$/results1.csv" />
         <option value="$PROJECT_DIR$/results_4cells.csv" />
         <option value="$PROJECT_DIR$/specs" />
         <option value="$PROJECT_DIR$/SP2_test_0.csv" />
@@ -192,7 +178,6 @@
         <option value="$PROJECT_DIR$/experiments/full_sample_01.txt" />
         <option value="$PROJECT_DIR$/create_sample.py" />
         <option value="$PROJECT_DIR$/logs/mcc_1.txt" />
-        <option value="$PROJECT_DIR$/regions.py" />
         <option value="$PROJECT_DIR$/logs/mcc_2.txt" />
         <option value="$PROJECT_DIR$/logs/mcc_3.txt" />
         <option value="$PROJECT_DIR$/logs/best_mcc_2.txt" />
@@ -200,7 +185,6 @@
         <option value="$PROJECT_DIR$/logs/mcc_5.txt" />
         <option value="$PROJECT_DIR$/read_npy.py" />
         <option value="$PROJECT_DIR$/logs/e-greedy/eps_2e-1_0.txt" />
-        <option value="$PROJECT_DIR$/reinforcement.py" />
         <option value="$PROJECT_DIR$/test_0.csv" />
         <option value="$PROJECT_DIR$/logs.txt" />
         <option value="$PROJECT_DIR$/some.py" />
@@ -210,18 +194,26 @@
         <option value="$PROJECT_DIR$/test.csv" />
         <option value="$PROJECT_DIR$/logs/historic/size_0.txt" />
         <option value="$PROJECT_DIR$/df_look.py" />
-        <option value="$PROJECT_DIR$/updaters.py" />
         <option value="$PROJECT_DIR$/TM_results.csv" />
         <option value="$PROJECT_DIR$/logs/historic/test.csv" />
-        <option value="$PROJECT_DIR$/parameters.yaml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/make_param_list.py" />
         <option value="$PROJECT_DIR$/test_params.py" />
-        <option value="$PROJECT_DIR$/utils.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/params_test.py" />
-        <option value="$PROJECT_DIR$/network.py" />
+        <option value="$PROJECT_DIR$/find_best.py" />
         <option value="$PROJECT_DIR$/SP_result.csv" />
+        <option value="$PROJECT_DIR$/SP_result_best.csv" />
+        <option value="$PROJECT_DIR$/SP2_result.csv" />
+        <option value="$PROJECT_DIR$/params_test.py" />
+        <option value="$PROJECT_DIR$/TM_result_best.csv" />
+        <option value="$PROJECT_DIR$/TM_result.csv" />
+        <option value="$PROJECT_DIR$/check_best.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/updaters.py" />
+        <option value="$PROJECT_DIR$/reinforcement.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/parameters.yaml" />
+        <option value="$PROJECT_DIR$/network.py" />
+        <option value="$PROJECT_DIR$/regions.py" />
       </list>
     </option>
   </component>
@@ -239,17 +231,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="grad_work" type="b2602c69:ProjectViewProjectNode" />
-              <item name="grad_work" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -261,12 +242,23 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="grad_work" type="b2602c69:ProjectViewProjectNode" />
+              <item name="grad_work" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/ВКР/size_1.png" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
@@ -293,7 +285,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.params_test">
+  <component name="RunManager" selected="Python.main">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="HTM" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -316,7 +308,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="df_look" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="find_best" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="HTM" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -329,7 +321,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plot_results.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/check_best.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -382,7 +374,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="reinforcement" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="HTM" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -395,7 +387,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/reinforcement.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -422,11 +414,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.reinforcement" />
+        <item itemvalue="Python.find_best" />
         <item itemvalue="Python.params_test" />
         <item itemvalue="Python tests.pytest in params_test.py" />
-        <item itemvalue="Python.utils" />
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.df_look" />
       </list>
     </recent_temporary>
   </component>
@@ -453,7 +445,9 @@
       <workItem from="1557909790877" duration="81658000" />
       <workItem from="1558255699647" duration="7194000" />
       <workItem from="1558266150420" duration="48000" />
-      <workItem from="1558526261100" duration="12839000" />
+      <workItem from="1558526261100" duration="22544000" />
+      <workItem from="1558560711606" duration="37842000" />
+      <workItem from="1558709337291" duration="12232000" />
     </task>
     <servers />
   </component>
@@ -463,7 +457,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="463783000" />
+    <option name="totallyTimeSpent" value="523562000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -478,20 +472,20 @@
     <frame x="-1" y="0" width="1922" height="1043" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49848485" visible="true" weight="0.21112311" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49848485" visible="true" weight="0.21868251" />
       <window_info id="Structure" order="1" sideWeight="0.50073206" side_tool="true" weight="0.18703108" />
       <window_info id="Favorites" order="2" sideWeight="0.50151515" side_tool="true" weight="0.20054054" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32830626" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4994641" visible="true" weight="0.2324511" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4099307" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32796317" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49892008" visible="true" weight="0.34407365" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40966627" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49945945" weight="0.26927504" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32922733" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50054055" side_tool="true" weight="0.27146173" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010799" side_tool="true" weight="0.2324511" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.24050634" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32796317" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -501,26 +495,26 @@
       <window_info anchor="right" id="Database" order="4" weight="0.329582" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49926794" visible="true" weight="0.20054054" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49848485" visible="true" weight="0.21868251" />
       <window_info id="Structure" order="1" sideWeight="0.50073206" side_tool="true" weight="0.18703108" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.50151515" side_tool="true" weight="0.20054054" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32830626" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4994641" visible="true" weight="0.26102087" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3012318" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32796317" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49892008" visible="true" weight="0.29919448" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40966627" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49945945" weight="0.27146173" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49945945" weight="0.26927504" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32922733" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50054055" side_tool="true" weight="0.27146173" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2412993" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32922733" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010799" side_tool="true" weight="0.2324511" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.24050634" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32796317" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.31832796" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.3174946" />
       <window_info anchor="right" id="Database" order="4" weight="0.329582" />
     </layout-to-restore>
   </component>
@@ -530,56 +524,28 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="removed unnecessary code" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed unnecessary code" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/grad_work$some.coverage" NAME="some Coverage Results" MODIFIED="1558022337012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/grad_work$main.coverage" NAME="main Coverage Results" MODIFIED="1558527532936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/grad_work$main.coverage" NAME="main Coverage Results" MODIFIED="1558723180441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HTM$main.coverage" NAME="main Coverage Results" MODIFIED="1556119211152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$test.coverage" NAME="test Coverage Results" MODIFIED="1558086219202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/grad_work$reinforcement.coverage" NAME="reinforcement Coverage Results" MODIFIED="1557940696145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/grad_work$reinforcement.coverage" NAME="reinforcement Coverage Results" MODIFIED="1558688879920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$plot.coverage" NAME="plot Coverage Results" MODIFIED="1557176016857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$utils.coverage" NAME="utils Coverage Results" MODIFIED="1558532385174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$create_train.coverage" NAME="create_train Coverage Results" MODIFIED="1557061075352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$df_look.coverage" NAME="df_look Coverage Results" MODIFIED="1558263026728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/grad_work$find_best.coverage" NAME="find_best Coverage Results" MODIFIED="1558682552100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$filter_out.coverage" NAME="filter_out Coverage Results" MODIFIED="1557313723063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/grad_work$params_test.coverage" NAME="params_test Coverage Results" MODIFIED="1558549536196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/grad_work$params_test.coverage" NAME="params_test Coverage Results" MODIFIED="1558627167172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$read_npy.coverage" NAME="read_npy Coverage Results" MODIFIED="1557766456828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$pytest_in_test_params_py.coverage" NAME="pytest in test_params.py Coverage Results" MODIFIED="1558540181797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/logs/sp_out542.log" />
-    <entry file="file://$PROJECT_DIR$/experiments/results.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Study/HTM/nupic/src/nupic/algorithms/backtracking_tm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="2929" selection-start-line="2929" selection-end-line="2929" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs_err.txt" />
-    <entry file="file://$USER_HOME$/Study/HTM/nupic.vision/src/nupic/vision/regions/ImageSensor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="319" selection-start-line="319" selection-end-line="319" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experiments/test.csv.3">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs2.txt" />
-    <entry file="file://$PROJECT_DIR$/experiments/full_sample_01.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1634">
-          <caret line="86" column="27" lean-forward="true" selection-start-line="86" selection-start-column="27" selection-end-line="86" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/full_sample_01.txt" />
     <entry file="file://$PROJECT_DIR$/parameters.csv" />
     <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/yaml/constructor.py" />
     <entry file="file://$USER_HOME$/miniconda3/envs/HTM/lib/python2.7/site-packages/numpy/lib/nanfunctions.py">
@@ -678,43 +644,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/historic/test.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_params.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TM_results.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/read_npy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test_params.csv" />
+    <entry file="file://$PROJECT_DIR$/TM_results.csv" />
+    <entry file="file://$PROJECT_DIR$/test.py" />
+    <entry file="file://$PROJECT_DIR$/read_npy.py" />
     <entry file="file://$PROJECT_DIR$/filter_out.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -729,15 +662,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-597">
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/plot.py" />
     <entry file="file://$PROJECT_DIR$/plot_results.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -748,30 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reinforcement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2812">
-          <caret line="148" column="15" selection-start-line="148" selection-start-column="15" selection-end-line="148" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/updaters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -779,65 +680,158 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/make_param_list.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parameters.yaml">
+    <entry file="file://$PROJECT_DIR$/make_param_list.py" />
+    <entry file="file://$PROJECT_DIR$/logs.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="21" />
+        <state relative-caret-position="-4050" />
+      </provider>
+      <provider editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$USER_HOME$/miniconda3/envs/HTM/lib/python2.7/site-packages/pandas/core/series.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="1785" selection-start-line="1785" selection-end-line="1785" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/logs/historic/test.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SP_result_best.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="57">
+          <caret line="3" column="59" selection-start-line="3" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SP_result.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="52" lean-forward="true" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SP2_result_best.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SP2_result.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TM_result.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="50" column="112" selection-start-line="50" selection-start-column="112" selection-end-line="50" selection-end-column="112" />
+        <state relative-caret-position="228">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/check_best.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/params_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="16" />
+        <state relative-caret-position="746">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs.txt">
-      <provider editor-type-id="LargeFileEditor" />
+    <entry file="file://$PROJECT_DIR$/updaters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4050" />
+        <state relative-caret-position="494">
+          <caret line="26" column="33" selection-start-line="11" selection-start-column="8" selection-end-line="26" selection-end-column="33" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network.py">
+    <entry file="file://$PROJECT_DIR$/TM_result_best.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-627">
-          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        <state relative-caret-position="285">
+          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#3616#5104#0" />
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SP_result.csv">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/reinforcement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="218" column="66" selection-start-line="218" selection-start-column="66" selection-end-line="218" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#212#954#0" />
+            <element signature="e#995#1252#0" />
+            <element signature="e#1288#1432#0" />
+            <element signature="e#1505#2255#0" />
+            <element signature="e#3442#3682#0" />
+            <element signature="e#4457#4961#0" />
+            <element signature="e#5018#6266#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parameters.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="58" column="10" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="408" column="4" selection-start-line="408" selection-start-column="4" selection-end-line="408" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#174#3390#0" />
+            <element signature="e#398#731#0" />
+            <element signature="e#11647#12855#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="225" column="59" selection-start-line="225" selection-start-column="59" selection-end-line="225" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

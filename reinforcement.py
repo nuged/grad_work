@@ -142,8 +142,93 @@ class BaseModel(object):
             print 'Failed to load from %s' % stateActCountPath
 
 
+class CategoryModel(object):
+    def __init__(self, numCategories, numActions=4, epsilon=0.1, seed=42, step=7, imgSize=28):
+        np.random.seed(seed)
+        self.imgSize = imgSize
+        self.step = step
+        self.gridSize = imgSize // step
+        self.numCategories = numCategories
+        self.numStates = self.gridSize ** 2
+        self.numActions = numActions
+        self.stateAction = np.full((numCategories, self.numStates, self.numActions), np.nan)
+        self.policy = np.zeros_like(self.stateAction)
+        self.epsilon = epsilon
+        self.stateActionSequence = None
+        self.stateActionCount = np.ones_like(self.stateAction, dtype=np.int)
+        self.stateActionSequence = None
+        self.initStateAction()
+        self.initPolicy()
+
+    def initStateAction(self):
+        for category in range(self.numCategories):
+            for i in range(self.numStates):
+                offset = utils.getOffset(i % self.gridSize**2, self.gridSize, self.step)
+                possibleActions = utils.getPossibleActions(offset, self.imgSize, self.step)
+                self.stateAction[category, i, possibleActions] = 0
+
+    def initPolicy(self):
+        for category in range(self.numCategories):
+            for i in range(self.numStates):
+                mask = ~np.isnan(self.stateAction[category, i])
+                self.policy[category, i, mask] = 1. / np.count_nonzero(mask)
+
+    def createSequence(self, category, startPosition, length, random=True):
+        '''
+        Creates state-action sequence, starting from startState and following current policy
+        '''
+        sequence = []
+        startState = utils.getIndex(startPosition, self.gridSize, self.step)
+        currentState = startState
+        stateActionSequence = []
+
+        for i in range(length):
+            if random:
+                action = np.random.choice([0, 1, 2, 3], p=self.policy[category, currentState])
+            else:
+                action = np.argmax(self.policy[category, currentState])
+            stateActionSequence.append((currentState, action))
+            sequence.append(action)
+            currentState = utils.updateState(currentState, action, [], self.gridSize, self.step)
+
+        self.stateActionSequence = stateActionSequence[::-1]
+        return sequence
+
+    def update(self, category, reward):
+        for i, (state, action) in enumerate(self.stateActionSequence):
+            if (state, action) not in self.stateActionSequence[i + 1:]:
+                self.stateAction[category, state, action] += \
+                    1. / self.stateActionCount[category, state, action] * \
+                    (reward - self.stateAction[category, state, action])
+                self.stateActionCount[category, state, action] += 1
+                action = np.nanargmax(self.stateAction[category, state])
+                for act in range(self.numActions):
+                    if self.policy[category, state, act] > 0:
+                        if act == action:
+                            self.policy[category, state, act] = \
+                                1 - self.epsilon + self.epsilon / np.count_nonzero(self.policy[category, state])
+                        else:
+                            self.policy[category, state, act] = \
+                                self.epsilon / np.count_nonzero(self.policy[category, state])
+
+    def BestSequence(self, category, startPosition, length):
+        sequence = self.createSequence(category, startPosition, length, random=False)
+        return sequence
+
+    def getNextAction(self, category, position):
+        return self.createSequence(category, position, 1, False)[0]
+
+
 if __name__ == '__main__':
-    for i in range(10):
-        model = BaseModel(4, seed=i, historySize=0)
-        print model.CenterSequence(6)
-        print model.BestSequence(6)
+    model = CategoryModel(10)
+    print model.createSequence(0, [0, 0], 5)
+    for state, act in model.stateActionSequence[::-1]:
+        print utils.getOffset(state, model.gridSize, model.step), state, act
+    model.update(0, 10)
+    print model.stateAction[0]
+    print model.stateActionCount[0]
+    print model.policy[0]
+    print model.BestSequence(0, [0, 0], 5)
+    for state, act in model.stateActionSequence[::-1]:
+        print utils.getOffset(state, model.gridSize, model.step), state, act
+    print model.getNextAction(0, [7, 0])

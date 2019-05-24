@@ -48,7 +48,8 @@ def getPossibleActions(offset, imgSize, step):
     return np.array(actions)
 
 def writeResults(filename, data, n_patterns, result, time, first=False):
-    stoplist = ['spatialImp', 'spVerbosity', 'seed', 'verbosity', 'inputWidth', 'temporalImp', 'globalInhibition']
+    stoplist = ['spatialImp', 'spVerbosity', 'seed', 'verbosity', 'inputWidth', 'temporalImp', 'globalInhibition',
+                'checkSynapseConsistency']
 
     data['numPatterns'] = n_patterns
     data['result'] = result

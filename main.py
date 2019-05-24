@@ -1,16 +1,16 @@
 from updaters import *
-from network import createNetwork, train, test
+from network import *
 import yaml
 from time import time
 import gc
-from reinforcement import BaseModel
+from reinforcement import BaseModel, CategoryModel
 
 IMG_SIZE = 28
 WINDOW_SIZE = 10
 STEP = 7
 SEQ_SIZE = 6
-actions = [0, 2, 2, 1, 1, 3]
-startState = [14, 14]
+actions = [0, 2, 2, 1, 3, 3]
+startState = [8, 8]
 
 with open('parameters.yaml', "r") as f:
     baseParameters = yaml.safe_load(f)['modelParams']
@@ -19,8 +19,68 @@ baseParameters['SP']['inputWidth'] = WINDOW_SIZE * WINDOW_SIZE
 baseParameters['sensor']['width'] = WINDOW_SIZE
 baseParameters['sensor']['height'] = WINDOW_SIZE
 
-size = 0
-model = BaseModel(4, epsilon=0.4, seed=333, historySize=size)
+baseParameters['sensor']['explorer'] = yaml.dump(["regions.secondExplorer", {'start' : startState,
+                                                                             'length' : SEQ_SIZE,
+                                                                             'step' : STEP}])
+
+model = CategoryModel(10, epsilon=0.2)
+
+net = createNetwork(baseParameters)
+sensor = net.regions['sensor']
+classifier = net.regions['CLS']
+explorer = sensor.getSelf().explorer[2]
+
+print modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
+print modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+exit(0)
+print modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
+print modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+print modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
+print modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+
+exit(0)
+
+
+sensor.executeCommand(['loadMultipleImages', 'mnist/small_testing'])
+numImages = sensor.getParameter('numImages')
+classifier.setParameter('inferenceMode', 1)
+net.regions['SP2'].setParameter('inferenceMode', 1)
+net.regions['TM'].setParameter('inferenceMode', 1)
+net.regions['SP'].setParameter('inferenceMode', 1)
+
+net.initialize()
+
+for i in range(numImages):
+
+    explorer.setMoveList([])
+    for j in range(SEQ_SIZE):
+        net.run(1)
+        sens_out = sensor.getOutputData('dataOut').reshape(10, 10)
+        print explorer.position
+        for s in sens_out:
+            print ''.join('_' if e == 0 else '&' for e in s)
+        position = explorer.position['offset']
+        catVec = classifier.getOutputData("categoriesOut")
+        print catVec
+        currentCategory = np.random.choice(np.arange(0, 10), p=catVec)
+        action = model.getNextAction(currentCategory, position)
+        explorer.addAction(action)
+
+
+    catVec = classifier.getOutputData("categoriesOut")
+    inferredCategory = catVec.argmax()
+    print inferredCategory
+
+
+
+
+
+
+
+
+
+
+exit(0)
 
 for i in range(180):
     if i == 60:
