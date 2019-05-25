@@ -1,8 +1,8 @@
 modelParams:
 
   "SP":
-    numActiveColumnsPerInhArea : 120
-    columnCount : 2048
+    numActiveColumnsPerInhArea : 80
+    columnCount : 4096
     "spatialImp": cpp
     "synPermConnected": 0.8
     "globalInhibition": 1
@@ -19,9 +19,9 @@ modelParams:
 
   TM:
     verbosity: 0
-    columnCount: 2048
+    columnCount: 4096
     cellsPerColumn: 2
-    inputWidth: 2048
+    inputWidth: 4096
     seed: 1960
     temporalImp: tm_cpp
 
@@ -39,8 +39,8 @@ modelParams:
 
   "SP2":
     columnCount : 2048
-    inputWidth : 4096
-    numActiveColumnsPerInhArea : 80
+    inputWidth : 8192
+    numActiveColumnsPerInhArea : 40
     "spatialImp": cpp
     "synPermConnected": 0.3
     "globalInhibition": 1
@@ -68,3 +68,12 @@ modelParams:
     "background": 1
     memoryLimit: 1024
 
+  CLS2:
+    maxCategoryCount: 10
+    verbosity : 0
+    alpha: 0.1
+    implementation : cpp
+
+# 21-27, 37-28
+# 85-19, 89-22, 87-18, 87-19
+# 85-22, 88-23, 89-26, 90-31, 92-29, 91-25, 91-24

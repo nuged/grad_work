@@ -71,6 +71,7 @@ def createNetwork(params):
     SP2_PARAMS = params['SP2']
     TM_PARAMS = params['TM']
     CLS_PARAMS = params['CLS']
+    CLS2_PARAMS = params['CLS2']
 
     net = myNetwork()
 
@@ -86,6 +87,8 @@ def createNetwork(params):
 
     Network.registerRegion(myClassifier)
     net.addRegion("CLS", "py.myClassifier", yaml.dump(CLS_PARAMS))
+
+    net.addRegion('CLS2', 'py.SDRClassifierRegion', yaml.dump(CLS2_PARAMS))
 
     net.link("sensor", "SP", "UniformLink", "",
              srcOutput="dataOut", destInput="bottomUpIn")
@@ -108,6 +111,12 @@ def createNetwork(params):
 
     net.link("sensor", "CLS", "UniformLink", "",
              srcOutput="categoryOut", destInput="categoryIn")
+
+    net.link("SP", "CLS2", "UniformLink", "",
+             srcOutput="bottomUpOut", destInput="bottomUpIn")
+    net.link("sensor", "CLS2", "UniformLink", "",
+             srcOutput="categoryOut", destInput="categoryIn")
+
     return net
 
 
@@ -117,6 +126,7 @@ def train(net, dataDir, fullSample=False):
     tm = net.regions['TM']
     sp2 = net.regions['SP2']
     classifier = net.regions["CLS"]
+
 
     imgIterations = sensor.getSelf().explorer[2].getImageIterations()
 
@@ -261,6 +271,7 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
     tm = net.regions['TM']
     sp2 = net.regions['SP2']
     classifier = net.regions["CLS"]
+    cls2 = net.regions['CLS2']
 
     if fullSample:
         path = os.path.join(dataDir, "training")
@@ -282,10 +293,16 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
     sp2.setParameter("inferenceMode", 1)
     sp2.setParameter("learningMode", 1)
     classifier.setParameter("inferenceMode", 1)
+    cls2.setParameter("inferenceMode", 1)
 
     print "---Phase 1---"
     start = time()
     numCorrect = 0
+    correctByStamp = np.zeros(length)
+    secondByStamp = np.zeros(length)
+    thirdByStam = np.zeros(length)
+    numFirstCorrect = 0
+
     for i in range(numTrainingImages):
         explorer.setMoveList([])
         classifier.setParameter("learningMode", 0)
@@ -296,9 +313,32 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
         for j in range(length):
             if j == length - 1:
                 classifier.setParameter("learningMode", 1)
+            if j == 0:
+                cls2.setParameter("learningMode", 1)
+            else:
+                cls2.setParameter("learningMode", 0)
             net.run(1, log)
+
+            if j == 0:
+                if cls2.getOutputData('categoriesOut') == sensor.getOutputData('categoryOut'):
+                    numFirstCorrect += 1
+
             #net.run(1)
             currentCategory = int(sensor.getOutputData('categoryOut')[0])
+            probs = classifier.getOutputData('probabilities')
+
+
+            firstVal = probs.argmax()
+            if firstVal == currentCategory:
+                correctByStamp[j] += 1
+
+            secondVal = probs.argsort()[-2]
+            if secondVal == currentCategory:
+                secondByStamp[j] += 1
+
+            thirdVal = probs.argsort()[-3]
+            if thirdVal == currentCategory:
+                thirdByStam[j] += 1
             if j == 0:
                 #print startPosition, currentCategory, length, 'before'
                 sequence = model.createSequence(currentCategory, copy.deepcopy(startPosition), length)
@@ -350,16 +390,18 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
             model.update(currentCategory, -1)
     print '\tFinished in %06.2f sec' % (time() - start)
     '''
-    return 100. * numCorrect / numTrainingImages #, classifier.getParameter('patternCount')
+    return 100. * numCorrect / numTrainingImages, 100. * numFirstCorrect / numTrainingImages, # correctByStamp / numTrainingImages, secondByStamp / numTrainingImages, \
+#thirdByStam / numTrainingImages
 
 
-def modifiedTest(net, model, stdartPosition, length, dataDir, fullSample=False):
+def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
     sensor = net.regions["sensor"]
     explorer = sensor.getSelf().explorer[2]
     sp = net.regions["SP"]
     tm = net.regions['TM']
     sp2 = net.regions['SP2']
     classifier = net.regions["CLS"]
+    cls2 = net.regions['CLS2']
 
     if fullSample:
         path = os.path.join(dataDir, "testing")
@@ -382,11 +424,15 @@ def modifiedTest(net, model, stdartPosition, length, dataDir, fullSample=False):
     sp2.setParameter("learningMode", 0)
     tm.setParameter("inferenceMode", 1)
     tm.setParameter("learningMode", 0)
+    cls2.setParameter("inferenceMode", 1)
+    cls2.setParameter("learningMode", 0)
 
     print('---Testing---')
     numCorrect = 0
     #np.random.seed(42)
-    every = numTestImages // 10
+    every = numTestImages + 100
+    correctByStamp = np.zeros(length)
+    numFirstCorrect = 0
     for i in range(numTestImages):
         explorer.setMoveList([])
         if i % 100 == 43:
@@ -396,23 +442,31 @@ def modifiedTest(net, model, stdartPosition, length, dataDir, fullSample=False):
         for j in range(length):
             #print explorer.position, explorer.moveList
             net.run(1, log)
+
+            if j == 0:
+                if cls2.getOutputData('categoriesOut') == sensor.getOutputData('categoryOut'):
+                    numFirstCorrect += 1
+                catVec = cls2.getOutputData("probabilities")
+                currentCategory = catVec.argmax()
+                sequence = model.createSequence(currentCategory, copy.deepcopy(startPosition), length)
+                # print startPosition, currentCategory, length, 'after'
+                explorer.setMoveList(sequence)
+
             #net.run(1)
-            position = explorer.position['offset']
+            #position = explorer.position['offset']
 
-            catVec = classifier.getOutputData("probabilities")
-            #currentCategory = np.random.choice(np.arange(0, 10), p=catVec)
-            currentCategory = int(sensor.getOutputData("categoryOut")[0])
-            action = model.getNextAction(currentCategory, copy.deepcopy(position))
+            #currentCategory = int(sensor.getOutputData("categoryOut")[0])
+            #action = model.getNextAction(currentCategory, copy.deepcopy(position))
 
-            explorer.addAction(action)
+            #explorer.addAction(action)
             #print catVec
             #print model.stateActionSequence
             #print sensor.getOutputData("categoryOut"), catVec.argmax(), explorer.position, explorer.moveList, '\n'
-
+        catVec = classifier.getOutputData("probabilities")
         if sensor.getOutputData("categoryOut") == catVec.argmax():
             numCorrect += 1
 
         if i % every == every - 1:
             print "\t%d-th iteration, nCorrect=%d" % (i, numCorrect)
 
-    return (100.0 * numCorrect) / numTestImages
+    return (100.0 * numCorrect) / numTestImages, numFirstCorrect * 100. / numTestImages

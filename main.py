@@ -33,7 +33,6 @@ explorer = sensor.getSelf().explorer[2]
 for i in range(10):
     print modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
     print modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
-    model.save('models/category')
 
 exit(0)
 
