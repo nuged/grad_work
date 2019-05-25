@@ -192,6 +192,7 @@ class CategoryModel(object):
             currentState = utils.updateState(currentState, action, [], self.gridSize, self.step)
 
         self.stateActionSequence = stateActionSequence[::-1]
+        self.stateActionSequence = self.stateActionSequence[1:] # last state doesn't have an action
         return sequence
 
     def update(self, category, reward):
@@ -218,17 +219,49 @@ class CategoryModel(object):
     def getNextAction(self, category, position):
         return self.createSequence(category, position, 1, False)[0]
 
+    def save(self, dirPath):
+        if not os.path.exists(dirPath):
+            os.makedirs(dirPath)
+        count = len([name for name in os.listdir(dirPath)]) // 3
+        policyPath = os.path.join(dirPath, 'policy_%02d' % count)
+        stateActPath = os.path.join(dirPath, 'stateAction_%02d' % count)
+        countPath = os.path.join(dirPath, 'stateActionCount_%02d' % count)
+
+        np.save(policyPath, self.policy)
+        np.save(stateActPath, self.stateAction)
+        np.save(countPath, self.stateActionCount)
+
+    def load(self, dirPath, version='latest'):
+        if version == 'latest':
+            count = len([name for name in os.listdir(dirPath) if name]) // 3
+            policyPath = os.path.join(dirPath, 'policy_%02d.txt' % (count - 1))
+            stateActPath = os.path.join(dirPath, 'stateAction_%02d.txt' % (count - 1))
+            stateActCountPath = os.path.join(dirPath, 'stateActionCount_%02d.txt' % (count - 1))
+        elif isinstance(version, (int, long)):
+            policyPath = os.path.join(dirPath, 'policy_%02d.txt' % version)
+            stateActPath = os.path.join(dirPath, 'stateAction_%02d.txt' % version)
+            stateActCountPath = os.path.join(dirPath, 'stateActionCount_%02d.txt' % version)
+        else:
+            raise AttributeError('Unknown version')
+
+        if os.path.exists(policyPath):
+            self.policy = np.loadtxt(policyPath)
+        else:
+            print 'Failed to load from %s' % policyPath
+
+        if os.path.exists(stateActPath):
+            self.stateAction = np.loadtxt(stateActPath)
+        else:
+            print 'Failed to load from %s' % stateActPath
+
+        if os.path.exists(stateActCountPath):
+            self.stateActionCount = np.loadtxt(stateActCountPath)
+        else:
+            print 'Failed to load from %s' % stateActCountPath
+
+
 
 if __name__ == '__main__':
     model = CategoryModel(10)
-    print model.createSequence(0, [0, 0], 5)
-    for state, act in model.stateActionSequence[::-1]:
-        print utils.getOffset(state, model.gridSize, model.step), state, act
-    model.update(0, 10)
-    print model.stateAction[0]
-    print model.stateActionCount[0]
-    print model.policy[0]
-    print model.BestSequence(0, [0, 0], 5)
-    for state, act in model.stateActionSequence[::-1]:
-        print utils.getOffset(state, model.gridSize, model.step), state, act
-    print model.getNextAction(0, [7, 0])
+    print model.createSequence(0, [8, 8], 5)
+    print model.stateActionSequence

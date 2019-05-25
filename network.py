@@ -5,95 +5,65 @@ import numpy as np
 from regions import *
 import os, sys
 import math
+from utils import *
 
 class myNetwork(Network):
 
-    def run(self, n, log):
+    def run(self, n, log=False):
         sensor = self.regions['sensor']
         sp = self.regions['SP']
         tm = self.regions['TM']
         sp2 = self.regions['SP2']
         cls = self.regions['CLS']
 
+        Network.run(self, n)
+
         if log:
+
             f = open('logs.txt', 'a')
             orig = sys.stdout
             sys.stdout = f
 
-            image = sensor.getSelf()._getOriginalImage().split()[0]
-            image = np.array(image)
-            for s in image:
+            print '\n\nsensor'
+            print sensor.getSelf().explorer[2].position
+            print sensor.getOutputData('resetOut')
+            sens_out = sensor.getOutputData('dataOut').reshape(10, 10)
+            for s in sens_out:
                 print ''.join('_' if e == 0 else '&' for e in s)
+
+            print '\nsp1'
+            sp1_in = sp.getInputData('bottomUpIn').reshape(10, 10)
+            for s in sp1_in:
+               print ''.join('_' if e == 0 else '&' for e in s)
+            print sp.getInputData('resetIn')
+            sp1_out = sp.getOutputData('bottomUpOut').reshape(16, 128)
+            for s in sp1_out:
+                print ''.join('_' if e == 0 else '&' for e in s)
+
+            print '\ntm'
+            print np.all(tm.getInputData('bottomUpIn') == sp1_out.reshape(-1))
+            print tm.getInputData('resetIn')
+            tm_bu = tm.getOutputData('bottomUpOut').reshape(4, 16, 128)
+
+            print 'bottomUp'
+            for mat in tm_bu:
+               for s in mat:
+                   print ''.join('_' if e == 0 else '&' for e in s)
+               print '\n'
+
+            print 'sp2'
+            print np.all(sp2.getInputData('bottomUpIn') == tm_bu.reshape(-1))
+            print sp2.getInputData('resetIn')
+            sp2_out = sp2.getOutputData('bottomUpOut').reshape(16, 128)
+            for s in sp2_out:
+                print ''.join('_' if e == 0 else '&' for e in s)
+
+            print '\ncls'
+            print np.all(cls.getInputData('bottomUpIn') == sp2_out.reshape(-1))
+            print 'catOut:', cls.getOutputData('categoriesOut')
 
             sys.stdout = orig
             f.close()
-
-        sp2Inference = sp2.getParameter('inferenceMode')
-        clsLearning = cls.getParameter('learningMode')
-        clsInference = cls.getParameter('inferenceMode')
-
-        cls.setParameter('learningMode', 0)
-        cls.setParameter('inferenceMode', 0)
-        sp2.setParameter('inferenceMode', 0)
-
-        for i in range(n):
-            if i == n - 1 and clsLearning:
-                cls.setParameter('learningMode', 1)
-            if i == n - 1 and sp2Inference:
-                sp2.setParameter('inferenceMode', 1)
-            if i == n - 1 and clsInference:
-                cls.setParameter('inferenceMode', 1)
-
-            if log:
-                Network.run(self, 1)
-
-                f = open('logs.txt', 'a')
-                orig = sys.stdout
-                sys.stdout = f
-
-                print '\n\nsensor'
-                print sensor.getSelf().explorer[2].position
-                print sensor.getOutputData('resetOut')
-                sens_out = sensor.getOutputData('dataOut').reshape(18, 18)
-                for s in sens_out:
-                    print ''.join('_' if e == 0 else '&' for e in s)
-
-                #print '\nsp1'
-                #sp1_in = sp.getInputData('bottomUpIn').reshape(10, 10)
-                #for s in sp1_in:
-                #    print ''.join('_' if e == 0 else '&' for e in s)
-                #print sp.getInputData('resetIn')
-                #sp1_out = sp.getOutputData('bottomUpOut').reshape(32, 128)
-                #for s in sp1_out:
-                #    print ''.join('_' if e == 0 else '&' for e in s)
-
-                #sprint '\ntm'
-                #print np.all(tm.getInputData('bottomUpIn') == sp1_out.reshape(-1))
-                #print tm.getInputData('resetIn')
-                #tm_bu = tm.getOutputData('bottomUpOut').reshape(2, 50, 160)
-
-                #print 'bottomUp'
-                #for mat in tm_bu:
-                #    for s in mat:
-                #        print ''.join('_' if e == 0 else '&' for e in s)
-                #    print '\n'
-
-                #print 'sp2'
-                #print np.all(sp2.getInputData('bottomUpIn') == tm_bu.reshape(-1))
-                #print sp2.getInputData('resetIn')
-                #sp2_out = sp2.getOutputData('bottomUpOut').reshape(16, 128)
-                #for s in sp2_out:
-                #    print ''.join('_' if e == 0 else '&' for e in s)
-
-                #print '\ncls'
-                #print np.all(cls.getInputData('bottomUpIn') == sp2_out.reshape(-1))
-                #print 'catOut:', cls.getOutputData('categoriesOut')
-
-                sys.stdout = orig
-                f.close()
-            else:
-                Network.run(self, 1)
-
 
 def createNetwork(params):
     IMAGE_SENSOR_PARAMS = params['sensor']
@@ -102,7 +72,7 @@ def createNetwork(params):
     TM_PARAMS = params['TM']
     CLS_PARAMS = params['CLS']
 
-    net = Network()
+    net = myNetwork()
 
     Network.registerRegion(mySensor)
     net.addRegion('sensor', 'py.mySensor', yaml.dump(IMAGE_SENSOR_PARAMS))
@@ -319,21 +289,30 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
     for i in range(numTrainingImages):
         explorer.setMoveList([])
         classifier.setParameter("learningMode", 0)
+        if i % 120 == 43:
+            log = False
+        else:
+            log = False
         for j in range(length):
             if j == length - 1:
                 classifier.setParameter("learningMode", 1)
-            net.run(1)
+            net.run(1, log)
+            #net.run(1)
             currentCategory = int(sensor.getOutputData('categoryOut')[0])
             if j == 0:
-                sequence = model.createSequence(currentCategory, startPosition, length)
+                #print startPosition, currentCategory, length, 'before'
+                sequence = model.createSequence(currentCategory, copy.deepcopy(startPosition), length)
+                #print startPosition, currentCategory, length, 'after'
                 explorer.setMoveList(sequence)
-            catVec = classifier.getOutputData("categoriesOut")
+            catVec = classifier.getOutputData("probabilities")
             #print catVec
+            #for state, act in model.stateActionSequence:
+            #    print getOffset(state, 4, 7), act, state
             #print sensor.getOutputData("categoryOut"), catVec.argmax(), explorer.position, explorer.moveList, '\n'
-        catVec = classifier.getOutputData("categoriesOut")
+        catVec = classifier.getOutputData("probabilities") #getOutputData("categoriesOut")
         inferredCategory = catVec.argmax()
         if inferredCategory == currentCategory:
-            model.update(currentCategory, 10)
+            model.update(currentCategory, 15)
             numCorrect += 1
         else:
             model.update(currentCategory, -1)
@@ -371,10 +350,10 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
             model.update(currentCategory, -1)
     print '\tFinished in %06.2f sec' % (time() - start)
     '''
-    return classifier.getParameter('patternCount'), 100. * numCorrect / numTrainingImages
+    return 100. * numCorrect / numTrainingImages #, classifier.getParameter('patternCount')
 
 
-def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
+def modifiedTest(net, model, stdartPosition, length, dataDir, fullSample=False):
     sensor = net.regions["sensor"]
     explorer = sensor.getSelf().explorer[2]
     sp = net.regions["SP"]
@@ -410,19 +389,25 @@ def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
     every = numTestImages // 10
     for i in range(numTestImages):
         explorer.setMoveList([])
+        if i % 100 == 43:
+            log = False
+        else:
+            log = False
         for j in range(length):
             #print explorer.position, explorer.moveList
-            net.run(1)
+            net.run(1, log)
+            #net.run(1)
             position = explorer.position['offset']
 
-            catVec = classifier.getOutputData("categoriesOut")
+            catVec = classifier.getOutputData("probabilities")
             #currentCategory = np.random.choice(np.arange(0, 10), p=catVec)
             currentCategory = int(sensor.getOutputData("categoryOut")[0])
             action = model.getNextAction(currentCategory, copy.deepcopy(position))
 
             explorer.addAction(action)
-            print catVec
-            print sensor.getOutputData("categoryOut"), currentCategory, explorer.position, explorer.moveList, '\n'
+            #print catVec
+            #print model.stateActionSequence
+            #print sensor.getOutputData("categoryOut"), catVec.argmax(), explorer.position, explorer.moveList, '\n'
 
         if sensor.getOutputData("categoryOut") == catVec.argmax():
             numCorrect += 1

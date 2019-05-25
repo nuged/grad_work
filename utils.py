@@ -92,7 +92,4 @@ def genParams(baseParams, source):
 
 
 if __name__ == '__main__':
-    d = {'a' : 0, 'b' : 2, 'c' : 3}
-    source = {'a' : [-1, -2, -3], 'b' : [10, 20, 30]}
-    for d in genParams(d, source):
-        print d
+    print getOffset()

@@ -8,9 +8,9 @@ from reinforcement import BaseModel, CategoryModel
 IMG_SIZE = 28
 WINDOW_SIZE = 10
 STEP = 7
-SEQ_SIZE = 6
+SEQ_SIZE = 7    # num of positions
 actions = [0, 2, 2, 1, 3, 3]
-startState = [8, 8]
+startState = [7, 7]
 
 with open('parameters.yaml', "r") as f:
     baseParameters = yaml.safe_load(f)['modelParams']
@@ -30,13 +30,10 @@ sensor = net.regions['sensor']
 classifier = net.regions['CLS']
 explorer = sensor.getSelf().explorer[2]
 
-print modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
-print modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
-exit(0)
-print modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
-print modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
-print modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
-print modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+for i in range(10):
+    print modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
+    print modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+    model.save('models/category')
 
 exit(0)
 
