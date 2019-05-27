@@ -31,8 +31,17 @@ classifier = net.regions['CLS']
 explorer = sensor.getSelf().explorer[2]
 
 for i in range(10):
-    print modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
-    print modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+    acc, first, second = modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
+    print 'Train acc:\t%3.1f' % acc
+    print '\tPrime:\t', first.astype(np.int)
+    print '\tSecond:\t', second.astype(np.int)
+
+    acc, first, second = modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+    print 'Test acc:\t%3.1f' % acc
+    print '\tPrime:\t', first.astype(np.int)
+    print '\tSecond:\t', second.astype(np.int)
+    print '\n'
+    break
 
 exit(0)
 

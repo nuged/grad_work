@@ -20,7 +20,7 @@ modelParams:
   TM:
     verbosity: 0
     columnCount: 4096
-    cellsPerColumn: 2
+    cellsPerColumn: 4
     inputWidth: 4096
     seed: 1960
     temporalImp: tm_cpp

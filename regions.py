@@ -54,9 +54,9 @@ class secondExplorer(BaseExplorer):
         self.moveList.append(action)
 
     def next(self, seeking=False):
-        if self.firstIter:
-            self.firstIter = False
-            return
+        pass
+
+    def customNext(self):
 
         if self.currentMove == self.length - 1:
             self.currentMove = 0
