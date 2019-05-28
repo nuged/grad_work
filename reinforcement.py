@@ -173,7 +173,7 @@ class CategoryModel(object):
                 mask = ~np.isnan(self.stateAction[category, i])
                 self.policy[category, i, mask] = 1. / np.count_nonzero(mask)
 
-    def createSequence(self, category, startPosition, length, random=True):
+    def createSequence(self, category, startPosition, length, random=True, store=True):
         '''
         Creates state-action sequence, starting from startState and following current policy
         '''
@@ -190,9 +190,9 @@ class CategoryModel(object):
             stateActionSequence.append((currentState, action))
             sequence.append(action)
             currentState = utils.updateState(currentState, action, [], self.gridSize, self.step)
-
-        self.stateActionSequence = stateActionSequence[::-1]
-        self.stateActionSequence = self.stateActionSequence[1:] # last state doesn't have an action
+        if store:
+            self.stateActionSequence = stateActionSequence[::-1]
+            self.stateActionSequence = self.stateActionSequence[1:] # last state doesn't have an action
         return sequence
 
     def update(self, category, reward):
@@ -216,8 +216,17 @@ class CategoryModel(object):
         sequence = self.createSequence(category, startPosition, length, random=False)
         return sequence
 
-    def getNextAction(self, category, position):
-        return self.createSequence(category, position, 1, False)[0]
+    def getNextAction(self, categories, probs, position):
+        possibleActions = np.zeros_like(categories, dtype=np.int)
+        for i, category in enumerate(categories):
+            action = self.createSequence(category, position, 1, random=False, store=False)[0]
+            possibleActions[i] = action
+
+        probs = np.exp(probs)/sum(np.exp(probs))
+
+        return np.random.choice(possibleActions, p=probs)
+        counts = np.bincount(possibleActions)
+        return np.argmax(counts)
 
     def save(self, dirPath):
         if not os.path.exists(dirPath):

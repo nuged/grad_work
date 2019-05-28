@@ -1,28 +1,27 @@
-Train acc:	43.6
-	Prime:	[29  9 38  9 43 10 43]
-	Second:	[16 10 16  9 16  9 14]
+KNN:
+
+Loaded 4500 training samples in 0.64 seconds
+---Training---
+	Finished in 499.27 sec
+Train acc:	51.9
+Loaded 500 testing samples in 0.03 seconds
 ---Testing---
-probabilities, step 0, correct 1:	[-344 -539 -312    0 -602 -519 -849 -909 -596 -736]
-probabilities, step 1, correct 1:	[ -300    -1 -1002  -934  -993  -327  -155  -473  -592  -230]
-probabilities, step 2, correct 1:	[ -402  -438 -1106 -1050 -1364     0  -660  -843  -461  -294]
-probabilities, step 3, correct 1:	[ -292     0 -1029  -944 -1134  -224  -235  -567  -498  -391]
-probabilities, step 4, correct 1:	[-311    0 -354 -531 -905 -567 -744 -648 -763 -641]
-probabilities, step 5, correct 1:	[ -533     0  -675  -813  -898  -901  -774 -1119 -1160  -460]
-probabilities, step 6, correct 1:	[ -532     0  -699  -793  -897  -899  -785 -1091 -1174  -495]
-probabilities, step 0, correct 2:	[ -186 -1556 -1188   -24   -51  -316  -477  -872  -138  -113]
-probabilities, step 1, correct 2:	[-210 -644 -472 -837 -661  -11 -292 -292 -362  -66]
-probabilities, step 2, correct 2:	[ -194 -1431 -1115   -14   -86  -307  -443  -828  -163   -98]
-probabilities, step 3, correct 2:	[ -663 -1403  -693     0  -821 -1058  -893 -1372 -1221 -1396]
-probabilities, step 4, correct 2:	[ -253 -1534 -1170   -41   -34  -333  -503  -896  -141   -92]
-probabilities, step 5, correct 2:	[ -628 -1334  -618     0  -743  -993  -862 -1317 -1188 -1294]
-probabilities, step 6, correct 2:	[ -329    -1 -1087  -751  -825  -165  -167 -1193  -625 -1104]
-probabilities, step 0, correct 3:	[-1082 -1832 -1968     0 -1256  -867 -1317 -1970 -1093 -1737]
-probabilities, step 1, correct 3:	[  -93  -662  -714  -162  -368    -6  -229  -665  -773 -1521]
-probabilities, step 2, correct 3:	[-1113 -1873 -1958     0 -1327  -877 -1366 -2022 -1069 -1755]
-probabilities, step 3, correct 3:	[ -115  -686  -715  -187  -379    -3  -252  -700  -800 -1569]
-probabilities, step 4, correct 3:	[-1113 -1873 -1958     0 -1327  -877 -1366 -2022 -1069 -1755]
-probabilities, step 5, correct 3:	[ -115  -686  -715  -187  -379    -3  -252  -700  -800 -1569]
-probabilities, step 6, correct 3:	[-1113 -1873 -1958     0 -1327  -877 -1366 -2022 -1069 -1755]
-Test acc:	58.2
-	Prime:	[29 10 47 14 59 14 58]
-	Second:	[16 12 18  7 13  8 15]
+Test acc:	48.0
+
+
+Loaded 4500 training samples in 0.81 seconds
+---Training---
+	Finished in 732.98 sec
+Train acc:	57.7
+Loaded 500 testing samples in 0.03 seconds
+---Testing---
+Test acc:	47.2
+
+
+Loaded 4500 training samples in 1.25 seconds
+---Training---
+	Finished in 795.22 sec
+Train acc:	57.7
+Loaded 500 testing samples in 0.13 seconds
+---Testing---
+Test acc:	42.2

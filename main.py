@@ -23,25 +23,22 @@ baseParameters['sensor']['explorer'] = yaml.dump(["regions.secondExplorer", {'st
                                                                              'length' : SEQ_SIZE,
                                                                              'step' : STEP}])
 
-model = CategoryModel(10, epsilon=0.2)
+model = CategoryModel(10, epsilon=0.25)
 
 net = createNetwork(baseParameters)
 sensor = net.regions['sensor']
 classifier = net.regions['CLS']
 explorer = sensor.getSelf().explorer[2]
 
-for i in range(10):
+for i in range(3):
     acc, first, second = modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
     print 'Train acc:\t%3.1f' % acc
-    print '\tPrime:\t', first.astype(np.int)
-    print '\tSecond:\t', second.astype(np.int)
 
-    acc, first, second = modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+    acc, pos = modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
     print 'Test acc:\t%3.1f' % acc
-    print '\tPrime:\t', first.astype(np.int)
-    print '\tSecond:\t', second.astype(np.int)
+    #print '\t', pos.mean(axis=0)
+    #print '\t', np.percentile(pos, q=10, axis=0)
     print '\n'
-    break
 
 exit(0)
 

@@ -274,7 +274,7 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
     sensor.executeCommand(["loadMultipleImages", path])
     numTrainingImages = sensor.getParameter("numImages")
     end = time()
-    #print 'Loaded %d training samples in %3.2f seconds' % (numTrainingImages, (end - start))
+    print 'Loaded %d training samples in %3.2f seconds' % (numTrainingImages, (end - start))
 
     net.initialize()
 
@@ -307,8 +307,8 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
             net.run(1, log)
             #print sensor.getSelf().explorer[2].position
             currentCategory = int(sensor.getOutputData('categoryOut')[0])
-            probs = classifier.getOutputData('probabilities')
-
+            #probs = classifier.getOutputData('probabilities')
+            probs = classifier.getOutputData('categoryProbabilitiesOut')
             firstVal = probs.argmax()
             if firstVal == currentCategory:
                 correctByStamp[j] += 1
@@ -326,13 +326,12 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
 
             sensor.getSelf().explorer[2].customNext()
 
-            catVec = classifier.getOutputData("probabilities")
             #print catVec
             #for state, act in model.stateActionSequence:
             #    print getOffset(state, 4, 7), act, state
             #print sensor.getOutputData("categoryOut"), catVec.argmax(), explorer.position, explorer.moveList, '\n'
-        catVec = classifier.getOutputData("probabilities") #getOutputData("categoriesOut")
-        inferredCategory = catVec.argmax()
+
+        inferredCategory = probs.argmax()
         if inferredCategory == currentCategory:
             model.update(currentCategory, 15)
             numCorrect += 1
@@ -361,7 +360,7 @@ def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
     sensor.executeCommand(["loadMultipleImages", path])
     numTestImages = sensor.getParameter("numImages")
     end = time()
-    #print 'Loaded %d testing samples in %3.2f seconds' % (numTestImages, (end - start))
+    print 'Loaded %d testing samples in %3.2f seconds' % (numTestImages, (end - start))
 
     net.initialize()
     explorer.first()
@@ -373,13 +372,17 @@ def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
     sp2.setParameter("learningMode", 0)
     tm.setParameter("inferenceMode", 1)
     tm.setParameter("learningMode", 0)
-
+    np.set_printoptions(formatter={'float': lambda x: "{0:0.3f}".format(x)})
     print('---Testing---')
     numCorrect = 0
     #np.random.seed(42)
     every = numTestImages + 100
     first = np.zeros(length)
     second = np.zeros(length)
+
+    positions = np.zeros((numTestImages, length))
+
+    q = 4
 
     for i in range(numTestImages):
         explorer.setMoveList([])
@@ -392,10 +395,28 @@ def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
             net.run(1, log)
             #print sensor.getSelf().explorer[2].position
             currentCategory = int(sensor.getOutputData('categoryOut')[0])
-            probs = classifier.getOutputData('probabilities')
+            #probs = classifier.getOutputData('probabilities')
+            probs = classifier.getOutputData('categoryProbabilitiesOut')
+            currentPosition = sensor.getSelf().explorer[2].position['offset']
 
-            if i in [21, 22, 23]:
-                print 'probabilities, step %d, correct %d:\t' % (j, currentCategory), (np.log10(probs)).astype(np.int)
+            if j == 1:
+                q = 5
+
+            if j == 2:
+                q = 3
+
+            if j == 4:
+                q = 2
+
+
+            qval = np.sort(probs)[::-1][q]
+            categories = np.nonzero(probs >= qval)[0]
+
+            action = model.getNextAction(categories, probs[categories], copy.deepcopy(currentPosition))
+
+            explorer.addAction(action)
+
+            positions[i][j] = np.nonzero(currentCategory == probs.argsort())[0][0]
 
             firstVal = probs.argmax()
             if firstVal == currentCategory:
@@ -405,10 +426,10 @@ def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
             if secondVal == currentCategory:
                 second[j] += 1
 
-            if j == 0:
-                sequence = model.createSequence(currentCategory, copy.deepcopy(startPosition), length)
+            #if j == 0:
+           #     sequence = model.createSequence(currentCategory, copy.deepcopy(startPosition), length)
                 # print startPosition, currentCategory, length, 'after'
-                explorer.setMoveList(sequence)
+           #     explorer.setMoveList(sequence)
 
             sensor.getSelf().explorer[2].customNext()
 
@@ -421,11 +442,11 @@ def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
             #print catVec
             #print model.stateActionSequence
             #print sensor.getOutputData("categoryOut"), catVec.argmax(), explorer.position, explorer.moveList, '\n'
-        catVec = classifier.getOutputData("probabilities")
+        catVec = probs
         if sensor.getOutputData("categoryOut") == catVec.argmax():
             numCorrect += 1
 
         if i % every == every - 1:
             print "\t%d-th iteration, nCorrect=%d" % (i, numCorrect)
 
-    return (100.0 * numCorrect) / numTestImages, 100. * first / numTestImages, 100. * second / numTestImages
+    return (100.0 * numCorrect) / numTestImages, positions

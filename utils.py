@@ -1,7 +1,8 @@
 import numpy as np
-import csv
+import csv, copy
 
 def getIndex(offset, gridSize, step):
+    offset = copy.deepcopy(offset)
     offset[0] //= step
     offset[1] //= step
     return offset[0] * gridSize + offset[1]

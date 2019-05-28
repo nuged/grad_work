@@ -34,7 +34,7 @@ class mySP(SPRegion):
     pass
 
 
-class myClassifier(SDRClassifierRegion):
+class myClassifier(KNNClassifierRegion):
     pass
 
 
