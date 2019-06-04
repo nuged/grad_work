@@ -1,8 +1,0 @@
-columnCount,numPatterns,time,synPermInactiveDec,synPermConnected,synPermActiveInc,potentialPct,result,numActiveColumnsPerInhArea,boostStrength,potentialRadius
-1024,9391,460.67912793159485,0.1,0.3,0.1,0.3,48.85,60,2,16
-2048,9865,613.4289021492004,0.1,0.3,0.1,0.3,50.8,100,2,16
-2048,9869,659.6378719806671,0.1,0.3,0.1,0.3,52.15,120,2,16
-4096,9867,758.9773020744324,0.1,0.3,0.1,0.3,52.8,100,2,16
-4096,9868,817.5326130390167,0.1,0.3,0.1,0.3,54.1,120,2,16
-columnCount,numPatterns,time,synPermInactiveDec,synPermConnected,synPermActiveInc,potentialPct,result,numActiveColumnsPerInhArea,boostStrength,potentialRadius
-1024,438,21.503446102142334,0.1,0.3,0.1,0.3,28.0,60,2,16

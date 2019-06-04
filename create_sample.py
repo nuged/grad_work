@@ -1,8 +1,8 @@
 import os, sys, shutil
 
 try:
-    N_SAMPLES = int(sys.argv[1])
-    mode = sys.argv[2]
+    N_SAMPLES = int(sys.argv[2])
+    mode = sys.argv[1]
 except IndexError:
     print 'Enter the number of samples AND mode'
     exit(1)

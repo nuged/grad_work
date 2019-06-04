@@ -20,10 +20,11 @@ modelParams:
   TM:
     verbosity: 0
     columnCount: 4096
-    cellsPerColumn: 4
+    cellsPerColumn: 2
     inputWidth: 4096
     seed: 1960
-    temporalImp: tm_cpp
+    temporalImp: cpp
+    outputType: activeState
 
     activationThreshold: 8
     minThreshold: 2
@@ -32,7 +33,7 @@ modelParams:
     connectedPerm: 0.5
     permanenceInc: 0.01
     permanenceDec: 0.01
-    predictedSegmentDecrement: 0.00005
+    predictedSegmentDecrement: 0.0005
     checkSynapseConsistency: 0
 
 
@@ -65,9 +66,26 @@ modelParams:
     #alpha: 0.005
     #implementation : cpp
 
+  Net:
+    inputWidth: 64
+    learningRate: 1e-3
+    momentum: 0.9
+    optimizer: adam
+    maxCategoryCount: 10
+    storageSize: 32
+    seqSize: 7
+
+  AutoEncoder:
+    inputWidth: 4096
+    learningRate: 5e-3
+    momentum: 0.9
+    optimizer: adam
+    hiddenSize: 64
+    storageSize: 28
+
   "sensor":
     "mode": "bw"
-    "background": 1
+    "background": 0
     memoryLimit: 1024
 
   CLS2:

@@ -1,6 +1,6 @@
 from updaters import *
 from network import *
-import yaml
+import yaml, utils
 from time import time
 import gc
 from reinforcement import BaseModel, CategoryModel
@@ -23,64 +23,44 @@ baseParameters['sensor']['explorer'] = yaml.dump(["regions.secondExplorer", {'st
                                                                              'length' : SEQ_SIZE,
                                                                              'step' : STEP}])
 
-model = CategoryModel(10, epsilon=0.25)
+model = CategoryModel(10, epsilon=0.1, ignoreCategory=True)
 
 net = createNetwork(baseParameters)
 sensor = net.regions['sensor']
 classifier = net.regions['CLS']
 explorer = sensor.getSelf().explorer[2]
 
+trainLosses = []
+testLosses = []
+
 for i in range(3):
-    acc, first, second = modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
+    acc, first, epochClsLosses = modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
+    trainLosses.append(epochClsLosses)
     print 'Train acc:\t%3.1f' % acc
 
-    acc, pos = modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+    acc, first, pos, testEpochLoss = modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+    testLosses.append(testEpochLoss)
     print 'Test acc:\t%3.1f' % acc
-    #print '\t', pos.mean(axis=0)
-    #print '\t', np.percentile(pos, q=10, axis=0)
+    print 'by step:\t', first
+
+    for j in range(10):
+        actPath = model.createSequence(j, startState, SEQ_SIZE, random=False, store=True)
+        path = []
+        for state, act in model.stateActionSequence[::-1]:
+            path.append(state)
+        print 'path:\t', path
+        break
+        # print '\tres:\t', pos.mean(axis=2)[j][:-1]
     print '\n'
 
-exit(0)
+with open('test_losses.txt', 'w') as f:
+    print >> f, testLosses
 
-
-sensor.executeCommand(['loadMultipleImages', 'mnist/small_testing'])
-numImages = sensor.getParameter('numImages')
-classifier.setParameter('inferenceMode', 1)
-net.regions['SP2'].setParameter('inferenceMode', 1)
-net.regions['TM'].setParameter('inferenceMode', 1)
-net.regions['SP'].setParameter('inferenceMode', 1)
-
-net.initialize()
-
-for i in range(numImages):
-
-    explorer.setMoveList([])
-    for j in range(SEQ_SIZE):
-        net.run(1)
-        sens_out = sensor.getOutputData('dataOut').reshape(10, 10)
-        print explorer.position
-        for s in sens_out:
-            print ''.join('_' if e == 0 else '&' for e in s)
-        position = explorer.position['offset']
-        catVec = classifier.getOutputData("categoriesOut")
-        print catVec
-        currentCategory = np.random.choice(np.arange(0, 10), p=catVec)
-        action = model.getNextAction(currentCategory, position)
-        explorer.addAction(action)
-
-
-    catVec = classifier.getOutputData("categoriesOut")
-    inferredCategory = catVec.argmax()
-    print inferredCategory
-
-
-
-
-
-
-
-
-
+with open('train_losses.txt', 'w') as f:
+    for epoch in trainLosses:
+        for item in epoch:
+            f.write('%f,' % item)
+        f.write('\n')
 
 exit(0)
 

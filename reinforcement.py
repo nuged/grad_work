@@ -143,20 +143,23 @@ class BaseModel(object):
 
 
 class CategoryModel(object):
-    def __init__(self, numCategories, numActions=4, epsilon=0.1, seed=42, step=7, imgSize=28):
+    def __init__(self, numCategories, numActions=4, epsilon=0.1, seed=42, step=7, imgSize=28, ignoreCategory=False):
         np.random.seed(seed)
         self.imgSize = imgSize
         self.step = step
         self.gridSize = imgSize // step
-        self.numCategories = numCategories
+        if ignoreCategory:
+            self.numCategories = 1
+        else:
+            self.numCategories = numCategories
         self.numStates = self.gridSize ** 2
         self.numActions = numActions
+        self.ignoreCategory = ignoreCategory
         self.stateAction = np.full((numCategories, self.numStates, self.numActions), np.nan)
         self.policy = np.zeros_like(self.stateAction)
         self.epsilon = epsilon
         self.stateActionSequence = None
         self.stateActionCount = np.ones_like(self.stateAction, dtype=np.int)
-        self.stateActionSequence = None
         self.initStateAction()
         self.initPolicy()
 
@@ -182,6 +185,9 @@ class CategoryModel(object):
         currentState = startState
         stateActionSequence = []
 
+        if self.ignoreCategory:
+            category = 0
+
         for i in range(length):
             if random:
                 action = np.random.choice([0, 1, 2, 3], p=self.policy[category, currentState])
@@ -192,10 +198,13 @@ class CategoryModel(object):
             currentState = utils.updateState(currentState, action, [], self.gridSize, self.step)
         if store:
             self.stateActionSequence = stateActionSequence[::-1]
-            self.stateActionSequence = self.stateActionSequence[1:] # last state doesn't have an action
+            #self.stateActionSequence = self.stateActionSequence[1:] # last state doesn't have an action
         return sequence
 
     def update(self, category, reward):
+        if self.ignoreCategory:
+            category = 0
+        self.stateActionSequence = self.stateActionSequence[1:]
         for i, (state, action) in enumerate(self.stateActionSequence):
             if (state, action) not in self.stateActionSequence[i + 1:]:
                 self.stateAction[category, state, action] += \
@@ -213,6 +222,8 @@ class CategoryModel(object):
                                 self.epsilon / np.count_nonzero(self.policy[category, state])
 
     def BestSequence(self, category, startPosition, length):
+        if self.ignoreCategory:
+            category = 0
         sequence = self.createSequence(category, startPosition, length, random=False)
         return sequence
 
@@ -224,7 +235,7 @@ class CategoryModel(object):
 
         probs = np.exp(probs)/sum(np.exp(probs))
 
-        return np.random.choice(possibleActions, p=probs)
+        #return np.random.choice(possibleActions, p=probs)
         counts = np.bincount(possibleActions)
         return np.argmax(counts)
 
@@ -271,6 +282,8 @@ class CategoryModel(object):
 
 
 if __name__ == '__main__':
-    model = CategoryModel(10)
-    print model.createSequence(0, [8, 8], 5)
-    print model.stateActionSequence
+    model = CategoryModel(10, seed=5, ignoreCategory=True)
+    print model.createSequence(5, [7, 7], 5)
+    model.update(5, 100)
+    print model.createSequence(5, [7, 7], 5)
+    print model.createSequence(3, [7, 7], 5)

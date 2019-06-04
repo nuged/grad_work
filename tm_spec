@@ -1,0 +1,196 @@
+{'singleNodeOnly': True,
+'inputs':
+{
+    'sequenceIdIn':
+    {
+        'count': 1,
+        'requireSplitterMap': False,
+        'description': 'Sequence ID',
+        'isDefaultInput': False,
+        'dataType': 'UInt64',
+        'required': False,
+        'regionLevel': True
+    },
+
+    'resetIn':
+    {
+        'count': 1,
+        'requireSplitterMap': False,
+        'description': 'Effectively a boolean flag that indicates whether or not the input vector received in this compute cycle represents the first training presentation in a new temporal sequence.',
+        'isDefaultInput': False,
+        'dataType': 'Real32',
+        'required': False,
+        'regionLevel': True
+    },
+
+    'bottomUpIn':
+    {
+        'count': 0,
+        'requireSplitterMap': False,
+        'description': 'The input signal, conceptually organized as an image pyramid data structure, but internally organized as a flattened vector.',
+        'isDefaultInput': True,
+        'dataType': 'Real32',
+        'required': True,
+        'regionLevel': False
+    }
+},
+'commands': {},
+'description': 'TMRegion is designed to implement the temporal memory compute for a given HTM level. Uses a form of Temporal Memory to do most of the work. The specific TM implementation is specified using the ``temporalImp`` parameter.',
+'parameters':
+{
+    'columnCount':
+    {
+        'count': 1,
+        'dataType': 'UInt32',
+        'constraints': '',
+        'description': 'Total number of columns.',
+        'accessMode': 'Read'
+    },
+
+    'maxSeqLength':
+    {
+        'count': 1,
+        'dataType': 'UInt32',
+        'constraints': '',
+        'description': '',
+        'accessMode': 'ReadWrite'
+    },
+
+    'maxInfBacktrack':
+    {
+        'count': 1,
+        'dataType': 'UInt32',
+        'constraints': '',
+        'description': '',
+        'accessMode': 'ReadWrite'
+    },
+
+    'learningMode':
+    {
+        'count': 1,
+        'description':
+        'True if the node is learning (default True).',
+        'dataType': 'Bool',
+        'accessMode': 'ReadWrite',
+        'defaultValue': True,
+        'constraints': 'bool'
+    },
+
+    'maxAge':
+    {
+        'count': 1,
+        'dataType': 'UInt32',
+        'constraints': '',
+        'description': '',
+        'accessMode': 'ReadWrite'
+    },
+
+    'breakPdb':
+    {
+        'count': 1,
+        'description': 'Set to 1 to stop in the pdb debugger on the next compute',
+        'dataType': 'UInt32',
+        'accessMode': 'ReadWrite',
+        'defaultValue': 0,
+        'constraints': 'bool'
+    },
+
+    'seed':
+    {
+        'count': 1,
+        'dataType': 'UInt32',
+        'constraints': '',
+        'description': '',
+        'accessMode': 'ReadWrite'
+    },
+
+    'permanenceMax':
+    {
+        'count': 1,
+        'dataType': 'Real32',
+        'constraints': '',
+        'description': '',
+        'accessMode': 'ReadWrite'
+    },
+
+    'maxSegmentsPerCell':
+    {
+        'count': 1,
+        'dataType': 'UInt32',
+        'constraints': '',
+        'description': '',
+        'accessMode': 'ReadWrite'
+    },
+
+    'temporalImp':
+    {
+        'count': 0,
+        'dataType': 'Byte',
+        'constraints': 'enum: py, cpp',
+        'description': "Which temporal memory implementation to use. Set to either 'py' or 'cpp'. The 'cpp' implementation is optimized for speed in C++.",
+        'accessMode': 'ReadWrite'
+    },
+
+    'activationThreshold':
+    {
+        'count': 1,
+        'dataType': 'UInt32',
+        'constraints': '',
+        'description': '',
+        'accessMode': 'ReadWrite'
+    },
+
+    'permanenceDec':
+    {
+        'count': 1,
+        'dataType': 'Real32',
+        'constraints': '',
+        'description': '',
+        'accessMode': 'ReadWrite'
+    },
+
+    'permanenceInc':
+    {
+        'count': 1,
+        'dataType': 'Real32',
+        'constraints': '',
+        'description': '',
+        'accessMode': 'ReadWrite'
+    },
+
+    'anomalyMode':
+    {
+        'count': 1,
+        'description': 'True if an anomaly score is being computed',
+        'dataType': 'Bool',
+        'accessMode': 'Create',
+        'defaultValue': False,
+        'constraints': 'bool'
+    },
+
+    'newSynapseCount':
+    {
+        'count': 1,
+        'dataType': 'UInt32',
+        'constraints': '',
+        'description': '',
+        'accessMode': 'ReadWrite'
+    },
+    'storeDenseOutput':
+    {
+        'count': 1,
+        'dataType': 'UInt32',
+        'constraints': 'bool',
+        'description': 'Whether to keep the dense column output (needed for denseOutput parameter).',
+        'accessMode': 'ReadWrite'
+    },
+
+    'pamLength': {'count': 1, 'dataType': 'UInt32', 'constraints': '', 'description': '', 'accessMode': 'ReadWrite'}, 'burnIn': {'count': 1, 'dataType': 'UInt32', 'constraints': '', 'description': '', 'accessMode': 'ReadWrite'}, 'connectedPerm': {'count': 1, 'dataType': 'Real32', 'constraints': '', 'description': '', 'accessMode': 'ReadWrite'}, 'predictedSegmentDecrement': {'count': 1, 'dataType': 'Real', 'constraints': '', 'description': 'Predicted segment decrement', 'accessMode': 'Read'}, 'topDownMode': {'count': 1, 'description': 'True if the node should do top down compute on the next call to compute into topDownOut (default False).', 'dataType': 'Bool', 'accessMode': 'ReadWrite', 'defaultValue': False, 'constraints': 'bool'}, 'initialPerm': {'count': 1, 'dataType': 'Real32', 'constraints': '', 'description': '', 'accessMode': 'ReadWrite'}, 'outputType': {'count': 0, 'dataType': 'Byte', 'constraints': 'multiple', 'description': '', 'accessMode': 'ReadWrite'}, 'breakKomodo': {'count': 1, 'description': 'Set to 1 to stop in the Komodo debugger on the next compute', 'dataType': 'UInt32', 'accessMode': 'ReadWrite', 'defaultValue': 0, 'constraints': 'bool'}, 'doPooling': {'count': 1, 'dataType': 'UInt32', 'constraints': 'bool', 'description': '', 'accessMode': 'ReadWrite'}, 'activeOutputCount': {'count': 1, 'dataType': 'UInt32', 'constraints': '', 'description': 'Number of active elements in bottomUpOut output.', 'accessMode': 'Read'}, 'cellsSavePath': {'count': 0, 'dataType': 'Byte', 'constraints': '', 'description': 'Optional path to file in which large temporal memory cells
+                                                                                                                            data structure is to be saved.', 'accessMode': 'ReadWrite'}, 'cellsPerColumn': {'count': 1, 'dataType': 'UInt32', 'constraints': '', 'description': 'Number of cells per column.', 'accessMode': 'Read'}, 'logPathOutput': {'count': 0, 'dataType': 'Byte', 'constraints': '', 'description': 'Optional name of output log file. If set, every output vector will be logged to this file as a sparse vector.', 'accessMode': 'ReadWrite'}, 'collectStats': {'count': 1, 'dataType': 'UInt32', 'constraints': 'bool', 'description': '', 'accessMode': 'ReadWrite'}, 'minThreshold': {'count': 1, 'dataType': 'UInt32', 'constraints': '', 'description': '', 'accessMode': 'ReadWrite'}, 'verbosity': {'count': 1, 'dataType': 'UInt32', 'constraints': '', 'description': '', 'accessMode': 'ReadWrite'}, 'maxSynapsesPerSegment': {'count': 1, 'dataType': 'UInt32', 'constraints': '', 'description': '', 'accessMode': 'ReadWrite'}, 'inferenceMode': {'count': 1, 'description': 'True if the node is inferring (default False).', 'dataType': 'Bool', 'accessMode': 'ReadWrite', 'defaultValue': False, 'constraints': 'bool'}, 'globalDecay': {'count': 1, 'dataType': 'Real32', 'constraints': '', 'description': '', 'accessMode': 'ReadWrite'}, 'computePredictedActiveCellIndices': {'count': 1, 'description': 'True if active and predicted active indices should be computed', 'dataType': 'Bool', 'accessMode': 'Create', 'defaultValue': False, 'constraints': 'bool'}, 'segUpdateValidDuration': {'count': 1, 'dataType': 'UInt32', 'constraints': '', 'description': '', 'accessMode': 'ReadWrite'}, 'maxLrnBacktrack': {'count': 1, 'dataType': 'UInt32', 'constraints': '', 'description': '', 'accessMode': 'ReadWrite'}, 'checkSynapseConsistency': {'count': 1, 'dataType': 'UInt32', 'constraints': 'bool', 'description': '', 'accessMode': 'ReadWrite'}, 'inputWidth': {'count': 1, 'dataType': 'UInt32', 'constraints': '', 'description': 'Number of inputs to the TM.', 'accessMode': 'Read'}, 'orColumnOutputs': {'count': 1, 'dataType': 'Bool', 'constraints': 'bool', 'description': 'OR together the cell outputs from each column to produce
+                                                                                        the temporal memory output. When this mode is enabled, the number of
+      cells per column must also be specified and the output size of the region
+      should be set the same as columnCount', 'accessMode': 'Read'}}, 'outputs': {'lrnActiveStateT': {'count': 0, 'dataType': 'Real32', 'isDefaultOutput': False, 'regionLevel': True, 'description': 'Active cells during learn phase at time t.  This is
+                              used for anomaly classification.'}, 'activeCells': {'count': 0, 'dataType': 'Real32', 'isDefaultOutput': False, 'regionLevel': True, 'description': 'The cells that are active'}, 'bottomUpOut': {'count': 0, 'dataType': 'Real32', 'isDefaultOutput': True, 'regionLevel': True, 'description': 'The output signal generated from the bottom-up inputs
+                                                        from lower levels.'}, 'topDownOut': {'count': 0, 'dataType': 'Real32', 'isDefaultOutput': False, 'regionLevel': True, 'description': 'The top-down inputsignal, generated from
+                        feedback from upper levels'}, 'predictedActiveCells': {'count': 0, 'dataType': 'Real32', 'isDefaultOutput': False, 'regionLevel': True, 'description': 'The cells that are active and predicted'}, 'anomalyScore': {'count': 1, 'dataType': 'Real32', 'isDefaultOutput': False, 'regionLevel': True, 'description': "The score for how 'anomalous' (i.e. rare) the current
+                        sequence is. Higher values are increasingly rare"}}}
