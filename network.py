@@ -297,7 +297,7 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
     losses = copy.copy(pycls.lossValues)
     pycls.lossValues = []
     pycls.loss_idx = 0
-    return 100. * numCorrect / numTrainingImages, 100. * correctByStamp / numTrainingImages, np.mean(losses)
+    return 100. * numCorrect / numTrainingImages, 100. * correctByStamp / numTrainingImages, losses
 
 
 def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):

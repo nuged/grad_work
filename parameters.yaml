@@ -67,7 +67,7 @@ modelParams:
     #implementation : cpp
 
   Net:
-    inputWidth: 64
+    inputWidth: 128
     learningRate: 1e-3
     momentum: 0.9
     optimizer: adam
@@ -80,7 +80,7 @@ modelParams:
     learningRate: 5e-3
     momentum: 0.9
     optimizer: adam
-    hiddenSize: 64
+    hiddenSize: 128
     storageSize: 28
 
   "sensor":
