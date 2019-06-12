@@ -6,7 +6,7 @@ IMG_SIZE = 28
 WINDOW_SIZE = 10
 STEP = 7
 SEQ_SIZE = 6    # num of positions
-actions = [3, 1, 2, 2, 3]
+actions = [1, 3, 0, 2, 1]
 startState = [7, 7]
 
 with open('parameters.yaml', "r") as f:
@@ -32,7 +32,7 @@ testLosses = []
 trainAccs = []
 testAccs = []
 
-for i in range(4):
+for i in range(5):
     acc, epochClsLosses = train(net, 'mnist', SEQ_SIZE)
     trainLosses.append(epochClsLosses)
     trainAccs.append(acc)
