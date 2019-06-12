@@ -5,8 +5,8 @@ from time import time
 IMG_SIZE = 28
 WINDOW_SIZE = 10
 STEP = 7
-SEQ_SIZE = 7    # num of positions
-actions = [1, 3, 0, 2, 0, 2]
+SEQ_SIZE = 6    # num of positions
+actions = [3, 1, 2, 2, 3]
 startState = [7, 7]
 
 with open('parameters.yaml', "r") as f:
@@ -29,20 +29,36 @@ explorer.setMoveList(actions)
 trainLosses = []
 testLosses = []
 
-for i in range(3):
+trainAccs = []
+testAccs = []
+
+for i in range(4):
     acc, epochClsLosses = train(net, 'mnist', SEQ_SIZE)
     trainLosses.append(epochClsLosses)
+    trainAccs.append(acc)
     print 'Train acc:\t%3.1f' % acc
 
     acc, first, testEpochLoss = test(net, 'mnist', SEQ_SIZE)
     testLosses.append(testEpochLoss)
+    testAccs.append(acc)
     print 'Test acc:\t%3.1f' % (acc)
     print 'bystep:\t', first
 
-with open('test_losses.txt', 'w') as f:
+FILE_PREFIX = 'scores/%s/' % ''.join([str(a) for a in actions])
+
+if not os.path.exists(FILE_PREFIX):
+    os.mkdir(FILE_PREFIX)
+
+with open(FILE_PREFIX + 'test_losses.txt', 'w') as f:
     print >> f, testLosses
 
-with open('train_losses.txt', 'w') as f:
+with open(FILE_PREFIX + 'train_accs.txt', 'w') as f:
+    print >> f, trainAccs
+
+with open(FILE_PREFIX + 'test_accs.txt', 'w') as f:
+    print >> f, testAccs
+
+with open(FILE_PREFIX + 'train_losses.txt', 'w') as f:
     for epoch in trainLosses:
         for item in epoch:
             f.write('%f,' % item)

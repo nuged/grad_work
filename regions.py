@@ -431,7 +431,7 @@ class myClassifier(PyRegion):
             outputData = self.net(inputData)
             outputs['probabilities'][:] = F.softmax(outputData, dim=1).cpu().numpy()
             if self.idx == self.seqSize:
-                if self.loss_idx % 25 == 0:
+                if self.loss_idx % 50 == 0:
                     loss = self.criterion(outputData, category, reduction='mean')
                     self.lossValues.append(loss.item())
                 self.loss_idx += 1

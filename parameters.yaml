@@ -1,8 +1,8 @@
 modelParams:
 
   "SP":
-    numActiveColumnsPerInhArea : 80
-    columnCount : 4096
+    numActiveColumnsPerInhArea : 40
+    columnCount : 2048
     "spatialImp": cpp
     "synPermConnected": 0.8
     "globalInhibition": 1
@@ -16,55 +16,13 @@ modelParams:
     potentialRadius: 16
     stimulusThreshold: 2
 
-
-  TM:
-    verbosity: 0
-    columnCount: 4096
-    cellsPerColumn: 2
-    inputWidth: 4096
-    seed: 1960
-    temporalImp: cpp
-    outputType: activeState
-
-    activationThreshold: 8
-    minThreshold: 2
-    newSynapseCount: 12
-    initialPerm: 0.5
-    connectedPerm: 0.5
-    permanenceInc: 0.01
-    permanenceDec: 0.01
-    predictedSegmentDecrement: 0.0005
-    checkSynapseConsistency: 0
-
-
-
-  "SP2":
-    columnCount : 2048
-    inputWidth : 8192
-    numActiveColumnsPerInhArea : 40
-    "spatialImp": cpp
-    "synPermConnected": 0.3
-    "globalInhibition": 1
-    "potentialPct": 0.3
-    spVerbosity: 0
-    seed: 1956
-    synPermActiveInc: 0.1
-    synPermInactiveDec: 0.1
-    boostStrength: 2
-    potentialRadius: 16
-
-
-  "CLS":
-    distThreshold: 8  # 14|20, 17|18, 17, 20
-    maxCategoryCount: 10
-    k : 64
-    distanceMethod: "rawOverlap"
-    "verbosity" : 0
-    #cellsPerCol: 4 #59-25,
-    maxStoredPatterns: 10500
-    #winnerCount : 1000
-    #alpha: 0.005
-    #implementation : cpp
+  AutoEncoder:
+    inputWidth: 2048
+    learningRate: 5e-3
+    momentum: 0.9
+    optimizer: adam
+    hiddenSize: 128
+    storageSize: 28
 
   Net:
     inputWidth: 128
@@ -73,27 +31,9 @@ modelParams:
     optimizer: adam
     maxCategoryCount: 10
     storageSize: 32
-    seqSize: 7
-
-  AutoEncoder:
-    inputWidth: 4096
-    learningRate: 5e-3
-    momentum: 0.9
-    optimizer: adam
-    hiddenSize: 128
-    storageSize: 28
+    seqSize: 6
 
   "sensor":
     "mode": "bw"
     "background": 0
-    memoryLimit: 1024
-
-  CLS2:
-    maxCategoryCount: 10
-    verbosity : 0
-    alpha: 0.1
-    implementation : cpp
-
-# 21-27, 37-28
-# 85-19, 89-22, 87-18, 87-19
-# 85-22, 88-23, 89-26, 90-31, 92-29, 91-25, 91-24
+    memoryLimit: 512

@@ -144,6 +144,8 @@ def train(net, dataDir, length, fullSample=False):
 
             net.run(1)
 
+            #print utils.getIndex(explorer.position['offset'], 4, 7)
+
             explorer.customNext()
 
         probs = classifier.getOutputData('probabilities')
@@ -282,10 +284,12 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
 
         if probs.argmax() == currentCategory:
             numCorrect += 1
-            if numEmpty > 0:
+            if numEmpty > 1:
                 model.update(currentCategory, 5)
             else:
-                if numUnique >= 4:
+                if numUnique >= 5:
+                    model.update(currentCategory, 100)
+                elif numUnique == 4:
                     model.update(currentCategory, 50)
                 else:
                     model.update(currentCategory, 25)
