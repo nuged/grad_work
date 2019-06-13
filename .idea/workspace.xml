@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac3145f9-5f67-4f54-80c9-d522f453c9d3" name="Default Changelist" comment="removed unnecessary code">
-      <change beforePath="$PROJECT_DIR$/fixed_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/fixed_path.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scores/31223/test_accs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/scores/31223/test_accs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scores/31223/test_losses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/scores/31223/test_losses.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scores/31223/train_accs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/scores/31223/train_accs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scores/31223/train_losses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/scores/31223/train_losses.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scores/MC/test_accs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/scores/MC/test_accs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scores/MC/test_losses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/scores/MC/test_losses.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scores/MC/train_accs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/scores/MC/train_accs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scores/MC/train_losses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/scores/MC/train_losses.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_results.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,11 +38,59 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fixed_path.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
               <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/plot_results.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+              <folding>
+                <element signature="e#2#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plot_another.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scores/11300/test_accs.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scores/11300/test_losses.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scores/11300/train_accs.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scores/11300/train_losses.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="2873" lean-forward="true" selection-start-line="4" selection-start-column="2873" selection-end-line="4" selection-end-column="2873" />
             </state>
           </provider>
         </entry>
@@ -74,24 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
               <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parameters.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logs.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2565">
-              <caret line="135" selection-start-line="135" selection-end-line="135" />
             </state>
           </provider>
         </entry>
@@ -133,10 +155,10 @@
       <find>self.imgSize</find>
       <find>startPosi</find>
       <find>LEA</find>
-      <find>\n</find>
       <find>createSeq</find>
       <find>stateActionSequence</find>
       <find>Test acc:</find>
+      <find>\n</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,7 +210,6 @@
         <option value="$PROJECT_DIR$/logs.txt" />
         <option value="$PROJECT_DIR$/tmp_2.txt" />
         <option value="$PROJECT_DIR$/tmp.txt" />
-        <option value="$PROJECT_DIR$/plot_results.py" />
         <option value="$PROJECT_DIR$/plot_another.py" />
         <option value="$PROJECT_DIR$/parameters.yaml" />
         <option value="$PROJECT_DIR$/regions.py" />
@@ -196,6 +217,7 @@
         <option value="$PROJECT_DIR$/network.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/fixed_path.py" />
+        <option value="$PROJECT_DIR$/plot_results.py" />
       </list>
     </option>
   </component>
@@ -219,11 +241,6 @@
             <path>
               <item name="grad_work" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="grad_work" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="scores" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -272,7 +289,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.fixed_path">
+  <component name="RunManager" selected="Python.plot_results">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="HTM" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -407,10 +424,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.plot_results" />
         <item itemvalue="Python.fixed_path" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.plot_another" />
-        <item itemvalue="Python.plot_results" />
         <item itemvalue="Python.reinforcement" />
       </list>
     </recent_temporary>
@@ -450,7 +467,7 @@
       <workItem from="1559300914544" duration="660000" />
       <workItem from="1559639321653" duration="33435000" />
       <workItem from="1560329746449" duration="1258000" />
-      <workItem from="1560331276146" duration="18872000" />
+      <workItem from="1560331276146" duration="25778000" />
     </task>
     <servers />
   </component>
@@ -460,7 +477,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="739247000" />
+    <option name="totallyTimeSpent" value="746153000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -484,7 +501,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3693901" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49945945" weight="0.26927504" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49945945" weight="0.2687428" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32911393" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
@@ -566,38 +583,10 @@
     <SUITE FILE_PATH="coverage/grad_work$params_test.coverage" NAME="params_test Coverage Results" MODIFIED="1558627167172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$read_npy.coverage" NAME="read_npy Coverage Results" MODIFIED="1557766456828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$tmp.coverage" NAME="tmp Coverage Results" MODIFIED="1559122715935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/grad_work$plot_results.coverage" NAME="plot_results Coverage Results" MODIFIED="1559679996036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/grad_work$plot_results.coverage" NAME="plot_results Coverage Results" MODIFIED="1560442202833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/grad_work$pytest_in_test_params_py.coverage" NAME="pytest in test_params.py Coverage Results" MODIFIED="1558540181797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/check_best.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/params_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/updaters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="33" selection-start-line="11" selection-start-column="8" selection-end-line="26" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/category/policy_00.txt" />
     <entry file="file://$PROJECT_DIR$/look_npy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -733,26 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plot_results.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="64" lean-forward="true" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot_another.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs.txt">
       <provider editor-type-id="LargeFileEditor" />
       <provider selected="true" editor-type-id="text-editor">
@@ -876,6 +845,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scores/11300/test_accs.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scores/11300/test_losses.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scores/11300/train_accs.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scores/11300/train_losses.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="2873" lean-forward="true" selection-start-line="4" selection-start-column="2873" selection-end-line="4" selection-end-column="2873" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_another.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="e#2#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
