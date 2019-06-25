@@ -402,12 +402,9 @@ class myClassifier(PyRegion):
         self.opt.zero_grad()
         inputData = self.X.view([self.storageSize, -1])
         outputData = self.net(inputData)
-        loss = self.criterion(outputData, self.y, reduction='none')
-        loss = loss.mean()
+        loss = self.criterion(outputData, self.y)
         loss.backward()
         self.opt.step()
-        self.numStored = 0
-        self.X = torch.zeros_like(self.X)
 
     def compute(self, inputs, outputs):
         """
@@ -433,7 +430,7 @@ class myClassifier(PyRegion):
             if self.idx == self.seqSize:
                 if self.loss_idx % 50 == 0:
                     loss = self.criterion(outputData, category, reduction='mean')
-                    self.lossValues.append(loss.item())
+                    # self.lossValues.append(loss.item())
                 self.loss_idx += 1
 
         if self.idx == self.seqSize:
@@ -441,7 +438,10 @@ class myClassifier(PyRegion):
             self.numStored += 1
 
         if self.numStored == self.storageSize:
-            self.learn()
+            if self.learningMode:
+                self.learn()
+            self.numStored = 0
+            self.X = torch.zeros_like(self.X)
 
     def getOutputElementCount(self, name):
         """

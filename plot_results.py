@@ -56,11 +56,11 @@ for folder in os.listdir('scores'):
     train_losses = (cumsum[N:] - cumsum[:-N]) / float(N)
     train_losses = np.clip(train_losses, 0, 1)
     plt.figure(figsize=(10, 10))
-    plt.plot(np.arange(N, n_iters * 5 + 1), train_losses, zorder=0,label='train')
-    xticks = np.arange(0, n_iters * 5 + 2, n_iters)
+    plt.plot(np.arange(N, n_iters * 5 + 1) * 50, train_losses, zorder=0,label='train')
+    xticks = np.arange(0, n_iters * 5 + 2, n_iters) * 50
     plt.xticks(xticks)
     plt.yticks(np.arange(0, 1.1, 0.1))
-    plt.plot([n_iters * i for i in range(1, 6)], folder_data['test_losses'], c='red', marker='*', zorder=1,
+    plt.plot([n_iters * i * 50 for i in range(1, 6)], folder_data['test_losses'], c='red', marker='*', zorder=1,
              markersize=15, label='test')
     plt.xlabel('iteration', fontsize=18)
     plt.ylabel('cross entropy loss', fontsize=18)

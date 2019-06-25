@@ -245,7 +245,7 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
     start = time()
     numCorrect = 0
     correctByStamp = np.zeros(length)
-
+    empty = np.zeros((10, numTrainingImages // 10))
     for i in range(numTrainingImages):
         explorer.setMoveList([])
         classifier.setParameter("learningMode", 0)
@@ -262,7 +262,7 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
 
             net.run(1)
 
-            numEmpty += np.count_nonzero(sensor.getOutputData('dataOut')) < 15
+            numEmpty += np.count_nonzero(sensor.getOutputData('dataOut')) < 20
 
             currentCategory = int(sensor.getOutputData('categoryOut')[0])
             probs = classifier.getOutputData('probabilities')
@@ -282,25 +282,30 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
         uniqueStates = np.unique(states)
         numUnique = len(uniqueStates)
 
+        empty[currentCategory, i // 10] += numEmpty
+
         if probs.argmax() == currentCategory:
             numCorrect += 1
             if numEmpty > 1:
-                model.update(currentCategory, 5)
+                model.update(currentCategory, 10)
             else:
-                if numUnique >= 5:
-                    model.update(currentCategory, 100)
-                elif numUnique == 4:
-                    model.update(currentCategory, 50)
+                if numUnique >= 4:
+                    model.update(currentCategory, 1000)
+                elif numUnique == 3:
+                    model.update(currentCategory, 500)
                 else:
-                    model.update(currentCategory, 25)
+                    model.update(currentCategory, 100)
         else:
             model.update(currentCategory, -1)
+
+
 
     print '\tFinished in %06.2f sec' % (time() - start)
     pycls = classifier.getSelf()
     losses = copy.copy(pycls.lossValues)
     pycls.lossValues = []
     pycls.loss_idx = 0
+
     return 100. * numCorrect / numTrainingImages, 100. * correctByStamp / numTrainingImages, losses
 
 
@@ -330,12 +335,11 @@ def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
     sp.setParameter("learningMode", 0)
     ae.setParameter("inferenceMode", 1)
     ae.setParameter("learningMode", 0)
-    np.set_printoptions(formatter={'float': lambda x: "{0:0.3f}".format(x)})
 
     print('---Testing---')
     numCorrect = 0
     every = numTestImages + 100
-    first = np.zeros(length)
+    first = 0
     positions = np.zeros((numTestImages, length))
 
     q = 2
@@ -359,40 +363,31 @@ def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
 
             currentCategory = int(sensor.getOutputData('categoryOut')[0])
             probs = classifier.getOutputData('probabilities')
+
+            if i >= 190 and False:
+                if j == 0:
+                    print '\nCategory: %d' % currentCategory
+                print '\tSTEP:\t%d\t' % j, (10000 * probs).astype(np.int)
+
             #probs = classifier.getOutputData('categoryProbabilitiesOut')
             currentPosition = sensor.getSelf().explorer[2].position['offset']
             #print currentCategory, explorer.position, sensor.getOutputData('resetOut')
-
-            if j == 1:
-                q = 4
-            if j == 2:
-                q = 3
-            if j == 4:
-                q = 1
-            qval = np.sort(probs)[::-1][q]
-            categories = np.nonzero(probs >= qval)[0]
-
-            action = model.getNextAction(categories, probs[categories], copy.deepcopy(currentPosition))
 
             state = utils.getIndex(copy.deepcopy(currentPosition), 4, 7)
             categoryPaths[currentCategory, j, i // 10] = state
 
             if j == 0:
+                if probs.argmax() == sensor.getOutputData("categoryOut"):
+                    first += 1
                 bestCategories = probs.argsort()[::-1][:nKeep]
                 bestProbs = probs[bestCategories]
                 bestProbs = np.exp(bestProbs) / sum(np.exp(bestProbs))
-                category = np.random.choice(bestCategories, p=bestProbs)
+                category = int(sensor.getOutputData('categoryOut'))
                 sequence = model.createSequence(category, copy.deepcopy(startPosition), length,
                                                 random=False, store=False)
                 explorer.setMoveList(sequence)
 
-            #explorer.addAction(action)
-
             positions[i][j] = np.nonzero(currentCategory == probs.argsort())[0][0]
-
-            firstVal = probs.argmax()
-            if firstVal == currentCategory:
-                first[j] += 1
 
             sensor.getSelf().explorer[2].customNext()
         #print 'numEmpty:', numEmpty
@@ -406,4 +401,114 @@ def modifiedTest(net, model, startPosition, length, dataDir, fullSample=False):
         losses = copy.copy(pycls.lossValues)
         pycls.lossValues = []
         pycls.loss_idx = 0
-    return (100.0 * numCorrect) / numTestImages, 100. * first / numTestImages, categoryPaths, np.mean(losses)
+    return (100.0 * numCorrect) / numTestImages, 100. * first / numTestImages, np.mean(losses)
+
+
+def parallelTest(net, model, startPosition, length, dataDir, fullSample=False):
+    sensor = net.regions["sensor"]
+    explorer = sensor.getSelf().explorer[2]
+    sp = net.regions["SP"]
+    ae = net.regions['AE']
+    classifier = net.regions["CLS"]
+
+    if fullSample:
+        path = os.path.join(dataDir, "testing")
+    else:
+        path = os.path.join(dataDir, 'small_testing')
+
+    start = time()
+    sensor.executeCommand(["loadMultipleImages", path])
+    numTestImages = sensor.getParameter("numImages")
+    end = time()
+    print 'Loaded %d testing samples in %3.2f seconds' % (numTestImages, (end - start))
+
+    net.initialize()
+    explorer.first()
+    classifier.setParameter("inferenceMode", 1)
+    classifier.setParameter("learningMode", 0)
+    sp.setParameter("inferenceMode", 1)
+    sp.setParameter("learningMode", 0)
+    ae.setParameter("inferenceMode", 1)
+    ae.setParameter("learningMode", 0)
+
+    print('---Testing---')
+    numCorrect = np.zeros(10)
+    numFirstCorrect = 0
+    nKeep = 10
+    emptyCats = np.zeros((10, nKeep))
+    answers = np.zeros((10, 10))
+    for i in range(numTestImages):
+        explorer.setMoveList([])
+
+        net.run(1)
+        #print '\n\n\n-------------------------------------------------------------------------------------'
+        #print explorer.position, sensor.getOutputData('categoryOut')
+
+        probs = classifier.getOutputData('probabilities')
+
+        topCategories = probs.argsort()[::-1][:nKeep]
+        #print "\n\n-----------------------cat:\t%d-----------------" % sensor.getOutputData('categoryOut')
+        #print topCategories
+
+        if sensor.getOutputData('categoryOut') in topCategories:
+            numFirstCorrect += 1
+
+        topCatsProbs = []
+        topCatsEmpty = []
+        for num, category in enumerate(topCategories):
+            sequence = model.createSequence(category, copy.deepcopy(startPosition), length,
+                                            random=False, store=False)
+            #print category, sequence
+            explorer.setMoveList(sequence)
+            explorer.customNext()
+            numEmpty = 0
+
+            for j in range(length - 1):
+                net.run(1)
+
+                #print explorer.position, sensor.getOutputData('categoryOut'), category, 'inside j'
+
+                numEmpty += np.count_nonzero(sensor.getOutputData('dataOut')) < 15
+
+                #print explorer.position, category
+                if j < length - 2:
+                    explorer.customNext()
+
+            currentProbs = classifier.getOutputData('probabilities')
+            topCatsProbs.append(currentProbs[category])
+            topCatsEmpty.append(numEmpty)
+            currentCategory = int(sensor.getOutputData("categoryOut"))
+
+            emptyCats[currentCategory, category] += numEmpty
+            #print currentCategory, category, numEmpty
+            #print (currentProbs * 1000).astype(np.int)
+
+            if category != topCategories[-1]:
+                explorer.setMoveList([])
+                explorer.position['offset'] = copy.deepcopy(startPosition)
+                explorer.currentMove = 0
+                net.run(1)
+                #print explorer.position, sensor.getOutputData('categoryOut'), category, 'out of j'
+
+            else:
+                explorer.customNext()
+                #print topCategories.astype(np.int)
+                #print np.array(topCatsEmpty)[topCategories.astype(np.int)]
+                topCatsProbs = np.array(topCatsProbs)
+                if currentCategory != 1:
+                    topCatsProbs[(np.array(topCatsEmpty) > 2)] = 0
+                bestCategoryIdx = np.argmax(topCatsProbs)
+                bestCategory = topCategories[bestCategoryIdx]
+                answers[currentCategory, bestCategory] += 1
+                if bestCategory == currentCategory:
+                    numCorrect[currentCategory] += 1
+
+    pycls = classifier.getSelf()
+    losses = copy.copy(pycls.lossValues)
+    pycls.lossValues = []
+    pycls.loss_idx = 0
+
+    print emptyCats
+
+    return (1000.0 * numCorrect) / numTestImages, (100.0 * numFirstCorrect) / numTestImages,\
+           numCorrect.sum() * 100. / numTestImages, answers
