@@ -19,7 +19,7 @@ baseParameters['sensor']['explorer'] = yaml.dump(["regions.secondExplorer", {'st
                                                                              'length' : SEQ_SIZE,
                                                                              'step' : STEP}])
 
-model = CategoryModel(10, epsilon=0.1, ignoreCategory=False)
+model = CategoryModel(10, epsilon=0.1, ignoreCategory=True)
 
 net = createNetwork(baseParameters)
 sensor = net.regions['sensor']
@@ -32,16 +32,15 @@ testLosses = []
 trainAccs = []
 testAccs = []
 
-for i in range(3):
+for i in range(5):
     acc, first, epochClsLosses = modifiedTrain(net, model, startState, SEQ_SIZE, 'mnist')
     print 'Train acc:\t%3.1f' % acc, first
-    # single - 74.9, 82.1, 81.9, 80.2
-    # parallel - 49, 49.5, 49.1, 52.2
-    # true path - 88.8, 95, 85.9, 96.1
-    acc, first, testEpochLoss, answers = parallelTest(net, model, startState, SEQ_SIZE, 'mnist')
-    print 'Test acc:\t', testEpochLoss, 'first acc:\t', first, 'by cat:\t', acc
-
-    print answers
+    trainLosses.append(epochClsLosses)
+    trainAccs.append(acc)
+    acc, first, testEpochLoss = modifiedTest(net, model, startState, SEQ_SIZE, 'mnist')
+    print 'Test acc:\t', acc, 'first acc:\t', first
+    testLosses.append(testEpochLoss)
+    testAccs.append(acc)
 
     for j in range(10):
         actPath = model.createSequence(j, startState, SEQ_SIZE, random=False, store=True)
@@ -49,6 +48,7 @@ for i in range(3):
         for state, act in model.stateActionSequence[::-1]:
             path.append(state)
         print '\'%d\':\t' % j, path, ','
+        break
         #print '\tres:\t', pos.mean(axis=2)[j][:-1]
     print '\n'
 
@@ -71,5 +71,3 @@ with open(FILE_PREFIX + 'train_losses.txt', 'w') as f:
         for item in epoch:
             f.write('%f,' % item)
         f.write('\n')
-
-path = [5, 6, 10, 9, 8, 9]

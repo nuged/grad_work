@@ -262,7 +262,7 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
 
             net.run(1)
 
-            numEmpty += np.count_nonzero(sensor.getOutputData('dataOut')) < 20
+            numEmpty += np.count_nonzero(sensor.getOutputData('dataOut')) < 15
 
             currentCategory = int(sensor.getOutputData('categoryOut')[0])
             probs = classifier.getOutputData('probabilities')
@@ -287,6 +287,20 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
         if probs.argmax() == currentCategory:
             numCorrect += 1
             if numEmpty > 1:
+                model.update(currentCategory, 5)
+            else:
+                if numUnique >= 5:
+                    model.update(currentCategory, 100)
+                elif numUnique == 4:
+                    model.update(currentCategory, 50)
+                else:
+                    model.update(currentCategory, 25)
+        else:
+            model.update(currentCategory, -1)
+        '''
+        if probs.argmax() == currentCategory:
+            numCorrect += 1
+            if numEmpty > 1:
                 model.update(currentCategory, 10)
             else:
                 if numUnique >= 4:
@@ -298,7 +312,7 @@ def modifiedTrain(net, model, startPosition, length, dataDir, fullSample=False):
         else:
             model.update(currentCategory, -1)
 
-
+        '''
 
     print '\tFinished in %06.2f sec' % (time() - start)
     pycls = classifier.getSelf()

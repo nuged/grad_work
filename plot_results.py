@@ -15,15 +15,16 @@ def plot_accuracy(data, mode='train'):
             c = 'red'
         else:
             c = None
+        title = key if key == 'MC' else ','.join(list(key))
         if key in ['MC', '31223']:
-            plt.plot(xs, data[key][mode + '_accs'], label=key, linewidth=3, c=c)
+            plt.plot(xs, data[key][mode + '_accs'], label=title, linewidth=3, c=c)
         else:
-            plt.plot(xs, data[key][mode + '_accs'], label=key, linewidth=1, alpha=0.75, c=c)
+            plt.plot(xs, data[key][mode + '_accs'], label=title, linewidth=1, alpha=0.75, c=c)
     plt.xticks(xs)
     if mode == 'train':
         ys = np.arange(75, 96, 2)
     else:
-        ys = np.arange(83, 96, 1)
+        ys = np.arange(83, 92, 1)
 
     plt.yticks(ys)
     plt.title(mode, fontsize=24)
@@ -65,7 +66,8 @@ for folder in os.listdir('scores'):
     plt.xlabel('iteration', fontsize=18)
     plt.ylabel('cross entropy loss', fontsize=18)
     plt.legend(fontsize=18)
-    plt.title(folder, fontsize=24)
+    title = folder if folder == 'MC' else ','.join(list(folder))
+    plt.title(title, fontsize=24)
     plt.show()
 
     del folder_data['train_losses']

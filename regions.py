@@ -430,7 +430,7 @@ class myClassifier(PyRegion):
             if self.idx == self.seqSize:
                 if self.loss_idx % 50 == 0:
                     loss = self.criterion(outputData, category, reduction='mean')
-                    # self.lossValues.append(loss.item())
+                    self.lossValues.append(loss.item())
                 self.loss_idx += 1
 
         if self.idx == self.seqSize:
